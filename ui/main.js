@@ -25,7 +25,7 @@ login.onclick= function(){
                 console.log('success');
                 alert("Logged in successfully")
             }else{
-                console.log('ínvalid');
+                console.log('Ã­nvalid');
                 alert('invalid');
             }
         }};
@@ -34,5 +34,8 @@ login.onclick= function(){
     console.log(username);
     console.log(password);
     request.open('POST','http://vidhiyakar.imad.hasura-app.io/login',true);
-    request.send(username+'$'+password);
+    var jsonobject={};
+    jsonobject["username"]=username;
+    jsonobject["password"]=password;
+    request.send(JSON.stringify(jsonobject));
 }
