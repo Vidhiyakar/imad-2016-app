@@ -101,7 +101,7 @@ app.get('/main.js', function(req,res){
 
 app.get('/logincheck',function(req,res){
     res.send('Senthil')
-    var username=req.body.username;
+    /*var username=req.body.username;
     var password = req.body.password;
     console.log('login endoint called');
     pool.query("select * from users where username=$1",[username],function(err,result){
@@ -124,7 +124,7 @@ app.get('/logincheck',function(req,res){
              }
            }
        }
-    });
+    });*/
 });
 var port = 8080; // Use 8080 for local development because you might already have apache running on 80
 app.listen(8080, function () {
