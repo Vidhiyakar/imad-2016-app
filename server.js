@@ -101,7 +101,6 @@ app.get('/main.js', function(req,res){
 
 app.get('/logincheck/:input',function(req,res){
     var input=req.params.input.split('$');
-    res.send(input);
     var username=input[0];
     var password = input[1];
     console.log('login endoint called');
