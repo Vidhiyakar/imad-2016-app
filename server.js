@@ -15,14 +15,14 @@ var app = express();
 
 app.use(morgan('combined'));
 
-var updatePageVisit=function(count){
+/*var updatePageVisit=function(count){
     pool.query("update info set value='"+count.toString()+"' where field='visitcount'",function(err,result)
     {
        if(err){
            res.send("error");
        } 
     });
-}
+}*/
 app.get('/pagevisited', function (req, res) {
     pool.query("SELECT value FROM info where field='visitcount'",function(err,result)
     {
