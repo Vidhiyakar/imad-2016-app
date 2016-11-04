@@ -33,7 +33,8 @@ app.get('/pagevisited', function (req, res) {
     else
     {
         var visitcount=result.rows[0].value;
-        updatePageVisit(visitcount+1);
+        visitcount++;
+        updatePageVisit(visitcount);
         res.send(visitcount);
     }
     });
