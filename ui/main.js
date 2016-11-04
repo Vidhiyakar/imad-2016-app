@@ -29,13 +29,11 @@ login.onclick= function(){
                 alert('invalid');
             }
         }};
-    var username= document.getElementById('username').value;
-    var password= document.getElementById('password').value;
-    console.log(username);
-    console.log(password);
+    var usernameval= document.getElementById('username').value;
+    var passwordval= document.getElementById('password').value;
+    console.log(usernameval);
+    console.log(passwordval);
     request.open('POST','http://vidhiyakar.imad.hasura-app.io/logincheck',true);
     var jsonobject={};
-    jsonobject["username"]=username;
-    jsonobject["password"]=password;
-    request.send(JSON.stringify(jsonobject));
+    request.send(JSON.stringify({username:usernameval,password:passwordval}));
 }
