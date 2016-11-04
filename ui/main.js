@@ -33,7 +33,7 @@ login.onclick= function(){
     var password= document.getElementById('password').value;
     console.log(username);
     console.log(password);
-    request.open('POST','http://vidhiyakar.imad.hasura-app.io/login',true);
+    request.open('POST','http://vidhiyakar.imad.hasura-app.io/logincheck',true);
     var jsonobject={};
     jsonobject["username"]=username;
     jsonobject["password"]=password;
