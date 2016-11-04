@@ -2,7 +2,6 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var Pool=require('pg').Pool;
-var pool=new Pool(db_config);
 var db_config = {
   host: 'db.imad.hasura-app.io',
   user: 'vidhiyakar',
@@ -10,7 +9,7 @@ var db_config = {
   database: 'vidhiyakar',
   port: '5432'
 };
-
+var pool = new Pool(db_config);
 var app = express();
 app.use(morgan('combined'));
 
