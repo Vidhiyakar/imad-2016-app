@@ -3,6 +3,7 @@ var morgan = require('morgan');
 var path = require('path');
 var Pool=require('pg').Pool;
 var crypto=require('crypto');
+var bodyParser = require('body-parser');
 
 var db_config = {
   host: 'db.imad.hasura-app.io',
@@ -15,6 +16,7 @@ var pool = new Pool(db_config);
 var app = express();
 
 app.use(morgan('combined'));
+app.use(bodyParser.json());
 
 var updatePageVisit=function(count){
     count++;
@@ -80,6 +82,19 @@ app.get('/resume',function(req,res){
   res.sendFile(path.join(__dirname,'ui','resume.html'))  
 });
 
+app.post('/createuser',function(req,res){
+    var username = req.body.username;
+    var password = req.body.password;
+    var salt = crypto.getRandomBytes(128).toString('hex');
+    var hashedPwd = hash(password,salt);
+    pool.query("insert into users (username,password) values($1,$2)",[username,hashedPwd],function(err,result){
+       if(err){
+           res.status(500).send(err.toString());
+       } else{
+           res.send("User creation successfull:"+username);
+       }
+    });
+});
 app.get('/main.js', function(req,res){
    res.sendFile(path.join(__dirname,'ui','main.js'));
 });
