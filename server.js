@@ -16,6 +16,7 @@ var app = express();
 app.use(morgan('combined'));
 
 var updatePageVisit=function(count){
+    count++;
     pool.query("update info set value='"+count.toString()+"' where field='visitcount'",function(err,result)
     {
        if(err){
@@ -33,7 +34,6 @@ app.get('/pagevisited', function (req, res) {
     else
     {
         var visitcount=result.rows[0].value;
-        visitcount++;
         updatePageVisit(visitcount);
         res.send(visitcount);
     }
