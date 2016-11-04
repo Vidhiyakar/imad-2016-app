@@ -100,9 +100,8 @@ app.get('/main.js', function(req,res){
 });
 
 app.get('/login',function(req,res){
-    var input = req.body.value.split('$');
-    var username=input[0];
-    var password = input[1];
+    var username=req.body.username;
+    var password = req.body.password;
     console.log('login endoint called');
     pool.query("select * from users where username=$1",[username],function(err,result){
        if(err){
