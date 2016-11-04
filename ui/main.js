@@ -22,7 +22,7 @@ login.onclick= function(){
         {        
             if(request.status===200)
             {    
-                var response=request.responseText;
+                var response=request.responseText.toString();
                 if(response=="success")
                     alert("Logged in successfully")
                 else
