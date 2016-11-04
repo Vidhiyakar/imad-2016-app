@@ -110,17 +110,14 @@ app.get('/logincheck/:input',function(req,res){
            res.status(500).send(err.toString());
        } else{
            if(result.rows.length === 0){
-             console.log('user not found');
-             res.send("user not found");
+             res.send(403).send("user not found");
            }else{
              var dbString = result.rows[0].password;
              var salt = dbString.split('$')[2];
              var hashedPwd = hash(password,salt);
              if(dbString === hashedPwd){
-               console.log('login success');
                res.send("Success");
              }else{
-               console.log('wrong password');
                res.send(403).send("Wrong password");
              }
            }
