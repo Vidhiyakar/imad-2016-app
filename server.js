@@ -99,7 +99,7 @@ app.get('/main.js', function(req,res){
    res.sendFile(path.join(__dirname,'ui','main.js'));
 });
 
-app.get('/login',function(req,res){
+app.get('/logi',function(req,res){
     res.send('Senthil')
     var username=req.body.username;
     var password = req.body.password;
