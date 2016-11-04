@@ -32,7 +32,7 @@ app.get('/pagevisited', function (req, res) {
     }
     else
     {
-        res.send(JSON.stringify(result.rows));
+        res.send(JSON.parse(JSON.stringify(result.rows)).value);
     }
     });
 });
