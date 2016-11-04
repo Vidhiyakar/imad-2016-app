@@ -31,6 +31,6 @@ login.onclick= function(){
         }};
     var username= document.getElementById('username').value;
     var password= document.getElementById('password').value;
-    request.open('GET','http://vidhiyakar.imad.hasura-app.io/logincheck/'+username+'/'+password,true);
+    request.open('GET','http://vidhiyakar.imad.hasura-app.io/logincheck/'+username+'$'+password,true);
     request.send(null);
 }
