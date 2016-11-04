@@ -16,6 +16,7 @@ request.send(null);
 
 var login = document.getElementById('login');
 login.onclick= function(){
+    console.log("button clicked");
     var request=new XMLHttpRequest();
     request.onreadystatechange=function(){
         if(request.readyState===XMLHttpRequest.DONE)
