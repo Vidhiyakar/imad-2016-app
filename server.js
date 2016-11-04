@@ -32,11 +32,7 @@ app.get('/pagevisited', function (req, res) {
     }
     else
     {
-        var visitcount=result.rows[0].value;
-        visitcount=parseInt(""+visitcount)+1;
-        updatePageVisit(visitcount);
-        console.log(visitcount);
-        res.send(visitcount);
+        res.send("äsdaswda");
     }
     });
 });
