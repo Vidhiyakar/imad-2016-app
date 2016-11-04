@@ -99,9 +99,10 @@ app.get('/main.js', function(req,res){
    res.sendFile(path.join(__dirname,'ui','main.js'));
 });
 
-app.get('/login/:username/:password',function(req,res){
-    var username=req.params.username;
-    var password = req.params.password;
+app.get('/login/:input',function(req,res){
+    var input=req.params.input.split('$');
+    var username=input[0];
+    var password = input[1];
     console.log('login endoint called');
     pool.query("select * from users where username=$1",[username],function(err,result){
        if(err){
