@@ -100,7 +100,26 @@ app.get('/main.js', function(req,res){
 });
 
 app.get('/login',function(req,res){
-    
+    var username = req.body.username;
+    var password = req.body.password;
+    pool.query("select * from users where username=$1",[username],function(err,result){
+       if(err){
+           res.status(500).send(err.toString());
+       } else{
+           if(result.rows.length ===0){
+             res.send(403).send("user not found");
+           }else{
+             var dbString = result.rows[0].password;
+             var salt = dbString.split('$')[2];
+             var hashedPwd = hash(password,salt);
+             if(dbString === hashedPwd){
+               res.send("Success");
+             }else{
+               res.send(403).send("Wrong password");
+             }
+           }
+       }
+    });
 });
 var port = 8080; // Use 8080 for local development because you might already have apache running on 80
 app.listen(8080, function () {
