@@ -26,7 +26,7 @@ login.onclick= function(){
                 alert("Logged in successfully")
             }else{
                 console.log('ínvalid');
-                alert(result);
+                alert('invalid');
             }
         }};
     var username= document.getElementById('username').value;
