@@ -33,6 +33,7 @@ function getPageVisit(){
     {
     if(err)
     {
+        return "{}";
     }
     else
     {
