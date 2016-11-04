@@ -22,11 +22,11 @@ login.onclick= function(){
         {        
             if(request.status===200)
             {            
-                console.log('success');
                 alert("Logged in successfully")
+            }else if(request.status === 403){
+                alert(''+response);
             }else{
-                console.log('invalid');
-                alert('invalid');
+                alert('Sorry. Something went wrong');
             }
         }}
     var username= document.getElementById('username').value;
