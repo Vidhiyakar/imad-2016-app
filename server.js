@@ -24,7 +24,7 @@ app.get('/pagevisited', function (req, res) {
     else
     {
         visitcount=result.rows[0].value;
-        res.send(visitcount)
+        res.send(visitcount);
     }
     });
 });
