@@ -25,7 +25,7 @@ login.onclick= function(){
                 console.log('success');
                 alert("Logged in successfully")
             }else{
-                console.log('ínvalid');
+                console.log('invalid');
                 alert('invalid');
             }
         }};
