@@ -21,11 +21,12 @@ login.onclick= function(){
         if(request.readyState===XMLHttpRequest.DONE)
         {        
             if(request.status===200)
-            {            
-                if(responseText.toString()==="success")
+            {    
+                var response=request.responseText;
+                if(response=="success")
                     alert("Logged in successfully")
                 else
-                    alert(""+responseText.toString());
+                    alert(""+response);
             }else{
                 alert('Sorry.. Something went wrong');
             }
