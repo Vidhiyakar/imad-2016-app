@@ -20,7 +20,7 @@ app.get('/pagevisited', function (req, res) {
     {
     if(err)
     {
-        result.status(500).send(err.toString());
+        res.status(500).send(err.toString());
     }
     else
     {
