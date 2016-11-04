@@ -59,6 +59,12 @@ app.get('/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
 
+app.get('/BluetoothChat.apk', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'BluetoothChat.apk'));
+});
+app.get('/BluetoothTransfer.apk', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'BluetoothTransfer.apk'));
+});
 app.get('/resume',function(req,res){
   res.sendFile(path.join(__dirname,'ui','resume.html'))  
 });
