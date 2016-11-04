@@ -32,8 +32,8 @@ app.get('/pagevisited', function (req, res) {
     }
     else
     {
-        updatePageVisit(6);
-        res.send(result.rows[0].value);
+        var visitcount=result.rows[0].value;
+        res.send(visitcount+" is "+isNaN(visitcount));
     }
     });
 });
