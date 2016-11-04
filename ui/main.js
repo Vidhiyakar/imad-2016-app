@@ -29,11 +29,8 @@ login.onclick= function(){
                 alert('invalid');
             }
         }};
-    var usernameval= document.getElementById('username').value;
-    var passwordval= document.getElementById('password').value;
-    console.log(usernameval);
-    console.log(passwordval);
-    request.open('POST','http://vidhiyakar.imad.hasura-app.io/logincheck',true);
-    var jsonobject={};
-    request.send(JSON.stringify({username:usernameval,password:passwordval}));
+    var username= document.getElementById('username').value;
+    var password= document.getElementById('password').value;
+    request.open('GET','http://vidhiyakar.imad.hasura-app.io/logincheck/'+username+'/'+password,true);
+    request.send(null);
 }
