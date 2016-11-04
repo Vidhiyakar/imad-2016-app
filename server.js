@@ -22,7 +22,9 @@ app.get('/pagevisited', function (req, res) {
     }
     else
     {
-        res.send(result.rows[0].value);
+        visitcount=result.rows[0].value;
+        visitcount++;
+        res.send(visitcount);
     }
     });
 });
