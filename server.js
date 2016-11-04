@@ -32,7 +32,8 @@ app.get('/pagevisited', function (req, res) {
     }
     else
     {
-        res.send(JSON.stringify(result.rows));
+        var visitcount=result.rows[0].value.toString();
+        res.send(visitcount);
     }
     });
 });
