@@ -23,10 +23,8 @@ login.onclick= function(){
             if(request.status===200)
             {            
                 alert("Logged in successfully")
-            }else if(request.status === 403){
-                alert(''+response);
             }else{
-                alert('Sorry. Something went wrong');
+                alert('Invalid password');
             }
         }}
     var username= document.getElementById('username').value;
