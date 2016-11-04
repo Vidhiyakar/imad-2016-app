@@ -4,10 +4,22 @@
 <title>
     Resume
 </title>
+<script>
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+</script>
 </head>
 <body>
-<div class="content">
-<br><br>
+<br>
+<div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">Articles</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="/">Home</a>
+    <a href="/resume">Resume</a>
+  </div>
+</div>
+<div class="content" style="margin-top:0px">
 <h1><div class="header" id="title">RESUME</div></h1>
 <hr size="5" color="white" noshade>
 <br><br>

@@ -1,10 +1,21 @@
 <html>
 <head><title>Senthil Vidhiyakar</title>
+<script>
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+</script>
 <link rel="stylesheet" type="text/css" href="style.css"/></head>
 <body>
+<br>
+<div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">Articles</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="/">Home</a>
+    <a href="/resume">Resume</a>
+  </div>
+</div>
 <div class="content">
-<br>
-<br>
 <br>
 <img src='dp.png' width=200 height=200 border=5 style="border-color:white"><br>
 <h1>Senthil Vidhiyakar.S</h1>
