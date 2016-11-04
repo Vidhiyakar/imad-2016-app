@@ -22,13 +22,17 @@ login.onclick= function(){
         {        
             if(request.status===200)
             {            
+                console.log('success');
                 alert("Logged in successfully")
             }else{
+                console.log('ínvalid');
                 alert(result);
             }
         }};
     var username= document.getElementById('username');
     var password= document.getElementById('password');
+    console.log(username);
+    console.log(password);
     request.open('POST','http://vidhiyakar.imad.hasura-app.io/login',true);
     request.setRequestHeader('Content-Type','application/json');
     request.send(JSON.stringify({username:username,password:password}));
