@@ -32,9 +32,7 @@ app.get('/pagevisited', function (req, res) {
     }
     else
     {
-        var jsonstring = JSON.stringify(result.rows);
-        var array=JSON.parse(jsonstring);
-        res.send(arr[0]+" is "+isNan(arr[0]));
+        res.send(JSON.stringify(result.rows));
     }
     });
 });
