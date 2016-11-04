@@ -5,9 +5,13 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var visitcount=0;
+app.get('/pagevisited', function (req, res) {
+    visitcount++;
+  res.send(visitcount.toString());
+});
 
 app.get('/', function (req, res) {
-    visitcount++;
     res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
