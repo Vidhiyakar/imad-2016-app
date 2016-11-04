@@ -32,8 +32,9 @@ app.get('/pagevisited', function (req, res) {
     }
     else
     {
-        var visitcount=parseInt(result.rows[0].value.toString());
-        res.send(visitcount+" is "+isNan(visitcount));
+        var jsonstring = JSON.stringify(result);
+        var array=JSON.parse(jsonstring);
+        res.send(arr[0]+" is "+isNan(arr[0]));
     }
     });
 });
