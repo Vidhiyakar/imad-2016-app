@@ -2,6 +2,7 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var Pool=require('pg').Pool;
+
 var db_config = {
   host: 'db.imad.hasura-app.io',
   user: 'vidhiyakar',
@@ -11,7 +12,17 @@ var db_config = {
 };
 var pool = new Pool(db_config);
 var app = express();
+
 app.use(morgan('combined'));
+
+var updatePageVisit=function(count){
+    pool.query("update info set value='"+count.toString()+"' where field='visitcount'",function(err,result)
+    {
+       if(err){
+           res.send("error");
+       } 
+    });
+}
 app.get('/pagevisited', function (req, res) {
     pool.query("SELECT value FROM info where field='visitcount'",function(err,result)
     {
@@ -21,6 +32,7 @@ app.get('/pagevisited', function (req, res) {
     }
     else
     {
+        updatePageVisit(6);
         res.send(result.rows[0].value);
     }
     });
