@@ -59,6 +59,10 @@ app.get('/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
 
+app.get('/resume',function(req,res){
+  res.sendFile(path.join(__dirname,'ui','resume.html'))  
+});
+
 app.get('/main.js', function(req,res){
    res.sendFile(path.join(__dirname,'ui','main.js'));
 });
