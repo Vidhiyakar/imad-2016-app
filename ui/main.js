@@ -22,11 +22,9 @@ login.onclick= function(){
         {        
             if(request.status===200)
             {    
-                var response=request.responseText.toString();
-                if(response=="success")
-                    alert("Logged in successfully")
-                else
-                    alert(""+response);
+                alert("Logged in successfully")
+            }else if(request.status === 403){
+                alert("Invalid username/password");
             }else{
                 alert('Sorry.. Something went wrong');
             }
