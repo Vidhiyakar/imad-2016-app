@@ -16,6 +16,18 @@ app.use(morgan('combined'));
 
 var visitcount=0;
 app.get('/pagevisited', function (req, res) {
+    pool.query('SELECT value FROM info where field=?',function(err,result)
+  {
+    if(err)
+    {
+        res.status(500).send(err.toString());
+    }
+    else
+    {
+        visitcount=Integer.parseInt(res.toString());
+    }
+      
+  });
     visitcount++;
   res.send(visitcount.toString());
 });
