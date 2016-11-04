@@ -24,24 +24,18 @@ var updatePageVisit=function(count){
     });
 }
 app.get('/pagevisited', function (req, res) {
-    var x=JSON.parse(getPageVisit()).value;
-    res.send(x);
-});
-
-function getPageVisit(){
     pool.query("SELECT value FROM info where field='visitcount'",function(err,result)
     {
     if(err)
     {
-        return "{}";
+        res.status(500).send(err.toString());
     }
     else
     {
-        return (JSON.stringify(result.rows));
+        res.send(JSON.stringify(result.rows));
     }
     });
-}
-
+});
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
