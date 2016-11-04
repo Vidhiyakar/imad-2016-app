@@ -107,9 +107,9 @@ app.get('/login',function(req,res){
        if(err){
            res.status(500).send(err.toString());
        } else{
-           if(result.rows.length ===0){
+           if(result.rows.length === 0){
              console.log('user not found');
-             res.send(403).send("user not found");
+             res.send("user not found");
            }else{
              var dbString = result.rows[0].password;
              var salt = dbString.split('$')[2];
