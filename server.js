@@ -22,8 +22,9 @@ app.get('/pagevisited', function (req, res) {
     }
     else
     {
-        visitcount=result.rows[0].value;
-        res.send(visitcount+1);
+        var visitcount=Integer.parseInt(result.rows[0].value);
+        visitcount++;
+        res.send(visitcount);
     }
     });
 });
