@@ -24,6 +24,7 @@ app.get('/pagevisited', function (req, res) {
     }
     else
     {
+        window.alert(reult.rows[0].value);
         visitcount=Integer.parseInt(result.rows[0].value.toString());
     }
     });
