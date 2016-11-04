@@ -2,7 +2,7 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var Pool=require('pg').Pool;
-var cypto=require('crypto');
+var crypto=require('crypto');
 
 var db_config = {
   host: 'db.imad.hasura-app.io',
