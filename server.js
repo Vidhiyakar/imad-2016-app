@@ -2,6 +2,7 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var Pool=require('pg').Pool;
+var cypto=require('crypto');
 
 var db_config = {
   host: 'db.imad.hasura-app.io',
@@ -55,6 +56,14 @@ app.get('/logo.png',function(req, res){
    res.sendFile(path.join(__dirname, 'ui', 'logo.png'));
 });
 
+function hash(input,salt){
+    var hashed = crypto.pbkdf2Sync(input,salt,5124,512,'sha512');
+    return hashed;
+}
+app.get('/hash/:input',function(req,res){
+   var hashedString= hash(req.params.input,'senthil-vidhiyakar-is-my-name');
+   res.send(hashedString);
+});
 app.get('/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
@@ -62,9 +71,11 @@ app.get('/style.css', function (req, res) {
 app.get('/BluetoothChat.apk', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'BluetoothChat.apk'));
 });
+
 app.get('/BluetoothTransfer.apk', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'BluetoothTransfer.apk'));
 });
+
 app.get('/resume',function(req,res){
   res.sendFile(path.join(__dirname,'ui','resume.html'))  
 });
@@ -72,6 +83,7 @@ app.get('/resume',function(req,res){
 app.get('/main.js', function(req,res){
    res.sendFile(path.join(__dirname,'ui','main.js'));
 });
+
 var port = 8080; // Use 8080 for local development because you might already have apache running on 80
 app.listen(8080, function () {
   console.log(`IMAD course app listening on port ${port}!`);
