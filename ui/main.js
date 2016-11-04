@@ -35,5 +35,5 @@ login.onclick= function(){
     console.log(password);
     request.open('POST','http://vidhiyakar.imad.hasura-app.io/login',true);
     request.setRequestHeader('Content-Type','application/json');
-    request.send(JSON.stringify({username:username,password:password}));
+    request.send(JSON.stringify({"username":username,"password":password}));
 }
