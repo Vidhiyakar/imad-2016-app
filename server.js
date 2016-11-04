@@ -12,7 +12,7 @@ var db_config = {
 var pool = new Pool(db_config);
 var app = express();
 app.use(morgan('combined'));
-function updatePageVisitToDB(count){
+function updatePageVisit(count){
     pool.query("update info set value='"+count+"' where field='visitcount'",function(err,result)
     {
     if(err)
@@ -32,7 +32,7 @@ app.get('/pagevisited', function (req, res) {
     {
         var visitcount=Integer.parseInt(result.rows[0].value);
         visitcount++;
-        
+        updatePageVisit(visitcount);
         res.send(visitcount);
     }
     });
