@@ -110,7 +110,7 @@ app.get('/logincheck/:input',function(req,res){
            res.status(500).send(err.toString());
        } else{
            if(result.rows.length === 0){
-             res.send("user not found");
+             res.send("No user found");
            }else{
              var dbString = result.rows[0].password;
              var salt = dbString.split('$')[2];
