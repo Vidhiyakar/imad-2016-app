@@ -14,7 +14,6 @@ var db_config = {
 var app = express();
 app.use(morgan('combined'));
 
-var visitcount=0;
 app.get('/pagevisited', function (req, res) {
     pool.query("SELECT value FROM info where field='visitcount'",function(err,result)
     {
@@ -25,9 +24,9 @@ app.get('/pagevisited', function (req, res) {
     else
     {
         visitcount=result.rows[0].value;
+        res.send(visitcount)
     }
     });
-  res.send(visitcount.toString());
 });
 
 app.get('/', function (req, res) {
