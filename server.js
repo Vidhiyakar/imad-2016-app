@@ -100,6 +100,7 @@ app.get('/main.js', function(req,res){
 });
 
 app.get('/login',function(req,res){
+    res.send('Senthil')
     var username=req.body.username;
     var password = req.body.password;
     console.log('login endoint called');
