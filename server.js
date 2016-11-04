@@ -22,7 +22,6 @@ app.get('/pagevisited', function (req, res) {
     else
     {
         var visitcount=Integer.parseInt(result.rows[0].value);
-        visitcount++;
         res.send(visitcount);
     }
     });
