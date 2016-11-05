@@ -24,6 +24,7 @@ app.use(session({
         maxAge : 1000*60*60*24*30
     }
 }));
+
 var updatePageVisit=function(count){
     count++;
     pool.query("update info set value='"+count.toString()+"' where field='visitcount'",function(err,result)
