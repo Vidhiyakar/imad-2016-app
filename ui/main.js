@@ -59,7 +59,7 @@ login.onclick= function(){
                 logout.onclick=logoutFunction();
                 */
                 loginform.innerHtml="senthil";
-                alert("Logged in successfully"+ loginformHtml1+" svidhiyakar "+loginformHtml2);
+                alert("Logged in successfully");
             }else if(request.status === 403){
                 alert(""+request.responseText.toString());
             }else{
