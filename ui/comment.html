@@ -23,6 +23,7 @@ function fetchComments(){
     request.open('GET','http://vidhiyakar.imad.hasura-app.io/getcomments',true);
     request.send(null);
 }
+fetchComments();
 </script>
 </head>
 <body>
@@ -40,7 +41,7 @@ function fetchComments(){
 <table width="100%" class="content" style="text-align:left">
 <tr height="50px" style="font-size:20px"><th width="20%">Username</th><th>Comment</th></tr>
 <tr><td colspan="2">
-<div onload='fetchComments()' style="overflow-x:hidden; verflow-y:scroll; height:400px; text-align:left">
+<div style="overflow-x:hidden; verflow-y:scroll; height:400px; text-align:left">
 <span id="comments"></span>
 </div></td>
 </tr>
