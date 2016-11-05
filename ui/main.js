@@ -50,6 +50,25 @@ function logoutFunction(){
 function loginSetup(){
 var login = document.getElementById('login');
 var signup = document.getElementById('signup');
+signup.onclick= function(){
+    var request=new XMLHttpRequest();
+    request.onreadystatechange=function(){
+        if(request.readyState===XMLHttpRequest.DONE)
+        {        
+            if(request.status===200)
+            {    
+                loginform.innerHTML=request.responseText.toString()+loginformHtml2;
+            }else if(request.status === 403){
+                alert(""+request.responseText.toString());
+            }else{
+                alert('Sorry.. Something went wrong');
+            }
+        }}
+    var username= document.getElementById('username').value;
+    var password= document.getElementById('password').value;
+    request.open('GET','http://vidhiyakar.imad.hasura-app.io/signupuser/'+(username+'$'+password),true);
+    request.send(null);
+}
 login.onclick= function(){
     var request=new XMLHttpRequest();
     request.onreadystatechange=function(){
