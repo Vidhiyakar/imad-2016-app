@@ -42,7 +42,7 @@ function fetchComments(){
     request.send(null);
 }
 function addComment(){
-    if(checkUserLogin()){
+    if(checkUserLogin()===true){
     var commentElement=document.getElementById('commenttext');
     var commentText=commentElement.value.toString();
     var request=new XMLHttpRequest();
