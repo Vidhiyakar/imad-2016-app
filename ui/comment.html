@@ -24,7 +24,8 @@ function fetchComments(){
     request.send(null);
 }
 function addComment(){
-    var commentText=document.getElementById('commenttext').value.toString();
+    var commentElement=document.getElementById('commenttext');
+    var commentText=commentElement.value.toString();
     var request=new XMLHttpRequest();
     request.onreadystatechange=function()
     {
@@ -33,6 +34,7 @@ function addComment(){
             if(request.status===200)
             {
                 fetchComments();
+                commentElement.value="";
             }else{
                 alert('Comment failed');
             }
