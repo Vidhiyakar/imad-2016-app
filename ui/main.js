@@ -1,4 +1,12 @@
+var loginformHtml = '<b>Login</b><br>\
+Username : <input type="text" id="username"/><br>\
+Password : <input type="password" id="password"/><br>\
+<input type="submit" value="Log In" id="login"/>\
+';
+
 var counterElement = document.getElementById('counter');
+var loginform = document.getElementById('loginform');
+
 var request=new XMLHttpRequest();
 request.onreadystatechange=function()
 {
