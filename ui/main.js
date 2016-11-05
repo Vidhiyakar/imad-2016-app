@@ -7,14 +7,10 @@ var loginform = document.getElementById('loginform');
 var request1=new XMLHttpRequest();
 request1.onreadystatechange=function()
 {
-    if(request1.readyState===XMLHttpRequest.DONE)
-    {
-        console.log('senthil');
         if(request1.status === 200)
         {
             loginform.innertHTML = "senthil";
         }
-    }
 };
 request1.open('GET','http://vidhiyakar.imad.hasura-app.io/checklogin',true);
 request1.send(null);
