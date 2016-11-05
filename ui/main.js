@@ -45,7 +45,7 @@ request.onreadystatechange=function()
 request.open('GET','http://vidhiyakar.imad.hasura-app.io/pagevisited',true);
 request.send(null);
 
-var login = document.getElementById('login');
+/*var login = document.getElementById('login');
 login.onclick= function(){
     var request=new XMLHttpRequest();
     request.onreadystatechange=function(){
@@ -53,10 +53,10 @@ login.onclick= function(){
         {        
             if(request.status===200)
             {    
-                /*loginform.innerHtml=loginformHtml1+' svidhiyakar '+loginformHtml2;
+                loginform.innerHtml=loginformHtml1+' svidhiyakar '+loginformHtml2;
                 var logoutbutton=document.getElementById('logout');
                 logout.onclick=logoutFunction();
-                */
+                
                 loginform.innerHtml="senthil";
                 alert("Logged in successfully");
             }else if(request.status === 403){
@@ -69,7 +69,7 @@ login.onclick= function(){
     var password= document.getElementById('password').value;
     request.open('GET','http://vidhiyakar.imad.hasura-app.io/login/'+(username+'$'+password),true);
     request.send(null);
-}
+}*/
 
 window.onclick = function(event) {
   if (!event.target.matches('.dropbtn')) {
