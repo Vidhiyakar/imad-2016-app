@@ -9,6 +9,9 @@ var loginformHtml2= "<br><input type='button' value='Log out' id='logout' onclic
 var counterElement = document.getElementById('counter');
 var loginform = document.getElementById('loginform');
 
+function logoutFunction(){
+    
+}
 var request=new XMLHttpRequest();
 request.onreadystatechange=function()
 {
@@ -19,13 +22,14 @@ request.onreadystatechange=function()
             var response=request.responseText;
             if(response === 'You are not logged in'){
                 loginform.innerHtml=loginfromHtml1+' svidhiyakar '+loginformHtml2;
+                var logoutbutton=document.getElementById('logout');
+                logout.onclick=logoutFunction();
             }
         }
     }
 };
 request.open('GET','http://vidhiyakar.imad.hasura-app.io/checklogin',true);
 request.send(null);
-
 
 var request=new XMLHttpRequest();
 request.onreadystatechange=function()
