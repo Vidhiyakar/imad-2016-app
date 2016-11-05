@@ -34,6 +34,23 @@ var updatePageVisit=function(count){
        } 
     });
 }
+
+app.get('/getcomments',function(req,res){
+    pool.query("select * from comment",function(err,result){
+       if(err){
+           
+       }else{
+           var count=result.rows.length;
+           var commentTable="<table style='text-align:left; margin:0px' class='content' width='100%'><tr><td width='20%'></td><td></td></tr>";
+           for(var i=0;i<count;i++){
+               commentTable+="<td>"+result.rows[i].username+"</td><td>"+result.rows[i].comment+"</td></tr>";
+           }
+           commentTable+="</table>";
+           res.send(""+commentTable);
+       }
+       
+    });
+})
 app.get('/pagevisited', function (req, res) {
     pool.query("SELECT value FROM info where field='visitcount'",function(err,result)
     {
