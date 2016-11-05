@@ -19,7 +19,7 @@ request.onreadystatechange=function()
         if(request.status===200)
         {
             var response=request.responseText.toString();
-            console.log(''+response);
+            console.log('sdfdsf'+response);
             if(response === 'You are not logged in'){
                 loginform.innerHtml=loginformHtml.toString();
                 console.log('sdsa');
