@@ -9,7 +9,7 @@ request1.onreadystatechange=function()
 {
         if(request1.status === 200)
         {
-            loginform.innerHTML = "senthil";
+            loginform.innerHTML = loginformHtml;
         }
 };
 request1.open('GET','http://vidhiyakar.imad.hasura-app.io/checklogin',true);
