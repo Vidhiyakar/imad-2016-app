@@ -123,7 +123,7 @@ app.get('/login/:input',function(req,res){
              var salt = dbString.split('$')[2];
              var hashedPwd = hash(password,salt);
              if(dbString === hashedPwd){
-                 req.session.auth={userId : result.rows[0].id};
+                 req.session.auth={userId : result.rows[0].username};
                res.send("Success");
              }else{
                res.status(403).send("Wrong password");
