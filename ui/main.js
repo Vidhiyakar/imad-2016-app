@@ -9,7 +9,7 @@ request1.onreadystatechange=function()
         if(request1.status === 403)
         {
             loginform.innerHTML = loginformHtml;
-            loginSetup();
+            signupSetup();
         }else if(request1.status ===200){
             loginform.innerHTML = request1.responseText.toString()+loginformHtml2;
         }
@@ -40,7 +40,7 @@ function logoutFunction(){
             if(request.status===200)
             {
                 loginform.innerHTML = loginformHtml;
-                loginSetup();
+                signupSetup();
             }
         }
     };
@@ -58,6 +58,7 @@ signup.onclick= function(){
             {    
                 alert(''+request.responseText.toString());
                 loginform.innerHTML = loginformHtml.toString();
+                loginSetup();
             }else{
                 alert('Username not available');
             }
