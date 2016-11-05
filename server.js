@@ -135,7 +135,7 @@ app.get('/login/:input',function(req,res){
 
 app.get('/checklogin',function(req,res){
     if(req.session && req.session.auth && req.session.auth.userId){
-        res.send('Logged in as '+req.session.auth.userId.toString());
+        res.send('Logged in as '+req.session.auth.userId.toString()+" ");
     }else{
         res.status(403).send('You are not logged in');
     }
