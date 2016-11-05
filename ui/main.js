@@ -17,7 +17,7 @@ request.onreadystatechange=function()
         {
             var response=request.responseText.toString();
             alert(''+response);
-            if(response === 'You are not logged in'){
+            if(response === "You are not logged in"){
                 loginform.innerHtml=loginformHtml.toString();
             }
         }
@@ -25,7 +25,6 @@ request.onreadystatechange=function()
 };
 request.open('GET','http://vidhiyakar.imad.hasura-app.io/checklogin',true);
 request.send(null);
-alert('adas');
 
 var request=new XMLHttpRequest();
 request.onreadystatechange=function()
