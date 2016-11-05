@@ -25,6 +25,7 @@ request.onreadystatechange=function()
 };
 request.open('GET','http://vidhiyakar.imad.hasura-app.io/checklogin',true);
 request.send(null);
+alert('adas');
 
 var request=new XMLHttpRequest();
 request.onreadystatechange=function()
