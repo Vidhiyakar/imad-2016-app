@@ -15,7 +15,10 @@ request1.onreadystatechange=function()
     {
         if(request1.status===200)
         {
-            console.log(''+request1.responseText.toString());
+            var resposeString = request.responseText.toString();
+            if(responseString === "You are not logged in"){
+                console.log('Yes');
+            }
         }
     }
 };
