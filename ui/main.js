@@ -59,10 +59,8 @@ signup.onclick= function(){
             {    
                 alert(''+request.responseText.toString());
                 loginform.innerHTML = loginformHtml.toString();
-            }else if(request.status === 403){
-                alert(""+request.responseText.toString());
             }else{
-                alert('Sorry.. Something went wrong');
+                alert('Username not available');
             }
         }}
     var username= document.getElementById('username').value;
