@@ -23,6 +23,24 @@ function fetchComments(){
     request.open('GET','http://vidhiyakar.imad.hasura-app.io/getcomments',true);
     request.send(null);
 }
+function addComment(){
+    var commentText=document.getElementById('commmenttext').value.toString();
+    var request=new XMLHttpRequest();
+    request.onreadystatechange=function()
+    {
+        if(request.readyState===XMLHttpRequest.DONE)
+        {
+            if(request.status===200)
+            {
+                fetchComments();
+            }else{
+                alert('Comment failed');
+            }
+        }
+    };
+    request.open('GET','http://vidhiyakar.imad.hasura-app.io/addcomments/'+commentText,true);
+    request.send(null);
+}
 </script>
 </head>
 <body onload='fetchComments()'>
