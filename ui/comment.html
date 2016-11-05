@@ -24,8 +24,7 @@ function fetchComments(){
     request.send(null);
 }
 function addComment(){
-    var commentText=document.getElementById('commmenttext').value.toString();
-    alert('asdasd');
+    var commentText=document.getElementById('commenttext').value.toString();
     var request=new XMLHttpRequest();
     request.onreadystatechange=function()
     {
