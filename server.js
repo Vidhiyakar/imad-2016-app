@@ -137,6 +137,20 @@ app.post('/createuser',function(req,res){
        }
     });
 });
+app.get('/signupuser/:input',function(req,res){
+  var input=req.params.input.split('$');
+    var username = input[0].toString();
+    var password = input[1].toString();
+    var salt = crypto.randomBytes(128).toString('hex');
+    var hashedPwd = hash(password,salt);
+    pool.query("insert into users (username,password) values($1,$2)",[username,hashedPwd],function(err,result){
+       if(err){
+           res.status(500).send(err.toString());
+       } else{
+           res.send("User creation successfull:"+username);
+       }
+    });
+});
 
 app.get('/main.js', function(req,res){
    res.sendFile(path.join(__dirname,'ui','main.js'));
