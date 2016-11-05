@@ -47,8 +47,7 @@ function logoutFunction(){
     request.open('GET','http://vidhiyakar.imad.hasura-app.io/logout',true);
     request.send(null);
 }
-function loginSetup(){
-var login = document.getElementById('login');
+function signupSetup(){
 var signup = document.getElementById('signup');
 signup.onclick= function(){
     var request=new XMLHttpRequest();
@@ -68,6 +67,9 @@ signup.onclick= function(){
     request.open('GET','http://vidhiyakar.imad.hasura-app.io/signupuser/'+(username+'$'+password),true);
     request.send(null);
 }
+}
+function loginSetup(){
+var login = document.getElementById('login');
 login.onclick= function(){
     var request=new XMLHttpRequest();
     request.onreadystatechange=function(){
