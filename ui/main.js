@@ -21,7 +21,7 @@ request.onreadystatechange=function()
             var response=request.responseText.toString();
             if(response === 'You are not logged in'){
                 loginform.innerHtml=loginformHtml.toString();
-                
+                console.log('sdsa');
             }
         }
     }
