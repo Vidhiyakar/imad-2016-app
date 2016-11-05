@@ -5,6 +5,7 @@ Comments
 </title>
 <link rel="stylesheet" type="text/css" href="style.css"/>
 <script>
+var loggedinFlag=false;
 function checkUserLogin(){
 var request=new XMLHttpRequest();
 request.onreadystatechange=function()
@@ -12,12 +13,10 @@ request.onreadystatechange=function()
     if(request.readyState===XMLHttpRequest.DONE)
     {
         if(request.status===200)
-        {
-            alert('OK');
-            return true;            
+        {   
+            loggedinFlag=true;
         }else{
-            alert('asdasdas');
-            return false;
+            loggedinFlag=false;
         }
     }
 };
@@ -43,7 +42,7 @@ function fetchComments(){
     request.send(null);
 }
 function addComment(){
-    if(checkUserLogin() === true){
+    if(loggedinFlag === true){
     var commentElement=document.getElementById('commenttext');
     var commentText=commentElement.value.toString();
     var request=new XMLHttpRequest();
