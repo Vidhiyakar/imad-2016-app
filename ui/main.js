@@ -12,6 +12,7 @@ request1.onreadystatechange=function()
     {
         if(request1.status===403)
         {
+            console.log('senthil');
             loginform.innertHTML = loginformHtml; 
         }
     }
