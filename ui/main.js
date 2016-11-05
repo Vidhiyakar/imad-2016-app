@@ -4,8 +4,28 @@ Password : <input type="password" id="password"/><br>\
 <input type="submit" value="Log In" id="login"/>\
 ';
 
+var loginformHtml1= 'Logged in as ';
+var loginformHtml2= "<br><input type='button' value='Log out' id='logout' onclick='logout()'/>";
 var counterElement = document.getElementById('counter');
 var loginform = document.getElementById('loginform');
+
+var request=new XMLHttpRequest();
+request.onreadystatechange=function()
+{
+    if(request.readyState===XMLHttpRequest.DONE)
+    {
+        if(request.status===200)
+        {
+            var response=request.responseText;
+            if(response === 'You are not logged in'){
+                loginform.innerHtml=loginfromHtml1+' svidhiyakar '+loginformHtml2;
+            }
+        }
+    }
+};
+request.open('GET','http://vidhiyakar.imad.hasura-app.io/checklogin',true);
+request.send(null);
+
 
 var request=new XMLHttpRequest();
 request.onreadystatechange=function()
