@@ -55,7 +55,7 @@ login.onclick= function(){
         {        
             if(request.status===200)
             {    
-                loginform.innerHTML=loginformHtml1+' svidhiyakar '+loginformHtml2;
+                loginform.innerHTML=loginformHtml1+req.session.auth.userId+loginformHtml2;
             }else if(request.status === 403){
                 alert(""+request.responseText.toString());
             }else{
