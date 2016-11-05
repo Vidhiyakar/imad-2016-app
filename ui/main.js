@@ -38,7 +38,8 @@ function logoutFunction(){
         {
             if(request.status===200)
             {
-                
+                loginform.innerHTML = loginformHtml;
+                loginSetup();
             }
         }
     };
