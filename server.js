@@ -123,7 +123,7 @@ app.get('/login/:input',function(req,res){
              var salt = dbString.split('$')[2];
              var hashedPwd = hash(password,salt);
              if(dbString === hashedPwd){
-                 req.session.auth={userId : result.rows[0].id};
+                 req.session.auth={userId : result.rows[0].id, name : username};
                res.send("Logged in as "+username);
              }else{
                res.status(403).send("Wrong password");
@@ -135,7 +135,7 @@ app.get('/login/:input',function(req,res){
 
 app.get('/checklogin',function(req,res){
     if(req.session && req.session.auth && req.session.auth.userId){
-        res.send('Logged in as '+req.session.auth.userId.toString()+" ");
+        res.send('Logged in as '+req.session.auth.name.toString()+" ");
     }else{
         res.status(403).send('You are not logged in');
     }
