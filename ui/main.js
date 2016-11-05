@@ -54,10 +54,11 @@ login.onclick= function(){
         {        
             if(request.status===200)
             {    
-                loginform.innerHtml=loginformHtml1+' svidhiyakar '+loginformHtml2;
+                /*loginform.innerHtml=loginformHtml1+' svidhiyakar '+loginformHtml2;
                 var logoutbutton=document.getElementById('logout');
                 logout.onclick=logoutFunction();
-                alert("Logged in successfully");
+                */
+                alert("Logged in successfully"+ loginformHtml1+" svidhiyakar "+loginformHtml2);
             }else if(request.status === 403){
                 alert(""+request.responseText.toString());
             }else{
