@@ -4,8 +4,6 @@ var loginformHtml2= "<br><input type='button' value='Log out' id='logout' onclic
 var counterElement = document.getElementById('counter');
 var loginform = document.getElementById('loginform');
 var request1=new XMLHttpRequest();
-
-var loggedInOrNot=false;
 request1.onreadystatechange=function()
 {
         if(request1.status === 403)
@@ -14,7 +12,6 @@ request1.onreadystatechange=function()
             loginSetup();
         }else if(request1.status ===200){
             loginform.innerHTML = request1.responseText.toString()+loginformHtml2;
-            loggedInOrNot=true;
         }
 };
 request1.open('GET','http://vidhiyakar.imad.hasura-app.io/checklogin',true);
@@ -42,7 +39,6 @@ function logoutFunction(){
         {
             if(request.status===200)
             {
-                loggedInOrNot=false;
                 loginform.innerHTML = loginformHtml;
                 loginSetup();
             }
