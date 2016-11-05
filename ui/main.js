@@ -7,7 +7,7 @@ var loginform = document.getElementById('loginform');
 var request1=new XMLHttpRequest();
 request1.onreadystatechange=function()
 {
-        if(request1.status === 200)
+        if(request1.status === 403)
         {
             loginform.innerHTML = loginformHtml;
         }
