@@ -139,6 +139,12 @@ app.get('/checklogin',function(req,res){
         res.send('You are not logged in');
     }
 });
+
+app.get('/logout',function(req,res){
+   delete req.session.auth;
+   res.send('You are logged out');
+});
+
 var port = 8080; // Use 8080 for local development because you might already have apache running on 80
 app.listen(8080, function () {
   console.log(`IMAD course app listening on port ${port}!`);
