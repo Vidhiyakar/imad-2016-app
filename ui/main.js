@@ -13,6 +13,7 @@ request.onreadystatechange=function()
 {
     if(request.readyState===XMLHttpRequest.DONE)
     {
+        console.log(''+request.status);
         if(request.status===200)
         {
             var response=request.responseText.toString();
@@ -25,7 +26,6 @@ request.onreadystatechange=function()
 };
 request.open('GET','http://vidhiyakar.imad.hasura-app.io/checklogin',true);
 request.send(null);
-console.log('dasdasd');
 var request=new XMLHttpRequest();
 request.onreadystatechange=function()
 {
