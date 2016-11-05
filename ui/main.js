@@ -30,7 +30,21 @@ request.onreadystatechange=function()
 };
 request.open('GET','http://vidhiyakar.imad.hasura-app.io/pagevisited',true);
 request.send(null);
-
+function logoutFunction(){
+    var request=new XMLHttpRequest();
+    request.onreadystatechange=function()
+    {
+        if(request.readyState===XMLHttpRequest.DONE)
+        {
+            if(request.status===200)
+            {
+                
+            }
+        }
+    };
+    request.open('GET','http://udhayasankar07.imad.hasura-app.io/logout',true);
+    request.send(null);
+}
 function loginSetup(){
 var login = document.getElementById('login');
 login.onclick= function(){
