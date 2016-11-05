@@ -43,7 +43,7 @@ app.get('/getcomments',function(req,res){
            var count=result.rows.length;
            var commentTable="<table style='text-align:left; margin:0px' class='content' width='90%'><tr><td width='30%'></td><td></td></tr>";
            for(var i=0;i<count;i++){
-               commentTable+="<tr height='20px'><td>"+result.rows[i].username+"</td><td>"+result.rows[i].comment+"</td></tr>";
+               commentTable+="<tr height='25px'><td>"+result.rows[i].username+"</td><td>"+result.rows[i].comment+"</td></tr>";
            }
            commentTable+="</table>";
            res.send(""+commentTable);
