@@ -50,7 +50,27 @@ app.get('/getcomments',function(req,res){
        }
        
     });
-})
+});
+
+app.get('/addcomments/:input', function (req, res) {
+    var commentText=req.params.input.toString();
+    var username=req.session.auth.name.toString();
+    pool.query("insert into comment(username,comment) values($1,$2)",[],function(err,result)
+    {
+    if(err)
+    {
+        res.status(500).send(err.toString());
+    }
+    else
+    {
+        var visitcount=result.rows[0].value;
+        updatePageVisit(visitcount);
+        res.send(visitcount);
+    }
+    });
+});
+
+
 app.get('/pagevisited', function (req, res) {
     pool.query("SELECT value FROM info where field='visitcount'",function(err,result)
     {
