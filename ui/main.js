@@ -40,10 +40,9 @@ login.onclick= function(){
         {        
             if(request.status===200)
             {    
-                loginform.innerHtml=loginformHtml1+' svidhiyakar '+loginformHtml2;
+                loginform.innerHTML=loginformHtml1+' svidhiyakar '+loginformHtml2;
                 var logoutbutton=document.getElementById('logout');
                 logout.onclick=logoutFunction();
-                
                 loginform.innerHtml="senthil";
                 alert("Logged in successfully");
             }else if(request.status === 403){
