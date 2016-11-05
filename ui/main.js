@@ -9,7 +9,7 @@ request1.onreadystatechange=function()
 {
     if(request1.readyState===XMLHttpRequest.DONE)
     {
-        if(request1.status === 403)
+        if(request1.status === 200)
         {
             loginform.innertHTML = "senthil";
         }
