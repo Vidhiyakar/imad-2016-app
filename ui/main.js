@@ -43,7 +43,7 @@ function logoutFunction(){
             }
         }
     };
-    request.open('GET','http://udhayasankar07.imad.hasura-app.io/logout',true);
+    request.open('GET','http://vidhiyakar.imad.hasura-app.io/logout',true);
     request.send(null);
 }
 function loginSetup(){
