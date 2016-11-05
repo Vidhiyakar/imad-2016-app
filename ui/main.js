@@ -43,7 +43,6 @@ login.onclick= function(){
                 loginform.innerHTML=loginformHtml1+' svidhiyakar '+loginformHtml2;
                 var logoutbutton=document.getElementById('logout');
                 logout.onclick=logoutFunction();
-                loginform.innerHtml="senthil";
             }else if(request.status === 403){
                 alert(""+request.responseText.toString());
             }else{
