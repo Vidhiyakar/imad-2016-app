@@ -4,6 +4,7 @@ var path = require('path');
 var Pool=require('pg').Pool;
 var crypto=require('crypto');
 var bodyParser = require('body-parser');
+var session = require('express-session');
 
 var db_config = {
   host: 'db.imad.hasura-app.io',
@@ -17,7 +18,12 @@ var app = express();
 
 app.use(morgan('combined'));
 app.use(bodyParser.json());
-
+app.use(session({
+    secret : 'someRandomSecretValue',
+    cookie : {
+        maxAge : 1000*60*60*24*30
+    }
+}));
 var updatePageVisit=function(count){
     count++;
     pool.query("update info set value='"+count.toString()+"' where field='visitcount'",function(err,result)
@@ -95,11 +101,12 @@ app.post('/createuser',function(req,res){
        }
     });
 });
+
 app.get('/main.js', function(req,res){
    res.sendFile(path.join(__dirname,'ui','main.js'));
 });
 
-app.get('/logincheck/:input',function(req,res){
+app.get('/login/:input',function(req,res){
     var input=req.params.input.split('$');
     var username=input[0];
     var password = input[1];
@@ -115,6 +122,7 @@ app.get('/logincheck/:input',function(req,res){
              var salt = dbString.split('$')[2];
              var hashedPwd = hash(password,salt);
              if(dbString === hashedPwd){
+                 req.session.auth={userId : result.rows[0].id};
                res.send("Success");
              }else{
                res.status(403).send("Wrong password");
@@ -122,6 +130,10 @@ app.get('/logincheck/:input',function(req,res){
            }
        }
     });
+});
+
+app.get('/checklogin',function(req,res){
+    
 });
 var port = 8080; // Use 8080 for local development because you might already have apache running on 80
 app.listen(8080, function () {
