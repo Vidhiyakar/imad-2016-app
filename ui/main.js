@@ -11,7 +11,7 @@ request1.onreadystatechange=function()
             loginform.innerHTML = loginformHtml;
             loginSetup();
         }else if(request1.status ===200){
-            loginform.innerHTML = request.responseText.toString()+loginformHtml2;
+            loginform.innerHTML = request1.responseText.toString()+loginformHtml2;
         }
 };
 request1.open('GET','http://vidhiyakar.imad.hasura-app.io/checklogin',true);
