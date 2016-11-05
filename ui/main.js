@@ -4,7 +4,7 @@ Password : <input type="password" id="password"/><br>\
 <input type="submit" value="Log In" id="login"/>\
 ';
 
-var loginformHtml1= 'Logged in as ';
+var loginformHtml1= "Logged in as ";
 var loginformHtml2= "<br><input type='button' value='Log out' id='logout' onclick='logout()'/>";
 var counterElement = document.getElementById('counter');
 var loginform = document.getElementById('loginform');
