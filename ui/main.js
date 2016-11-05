@@ -13,12 +13,10 @@ request1.onreadystatechange=function()
 {
     if(request1.readyState===XMLHttpRequest.DONE)
     {
-        if(request1.status===200)
+        if(request1.status===403)
         {
             var responseString = request.responseText.toString();
-            if(responseString.toString().equals("You are not logged in")===true){
-                console.log('Yes');
-            }
+            alert('asdasd');
         }
     }
 };
