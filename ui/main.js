@@ -8,9 +8,6 @@ var loginformHtml1= "Logged in as ";
 var loginformHtml2= "<br><input type='button' value='Log out' id='logout' onclick='logout()'/>";
 var counterElement = document.getElementById('counter');
 var loginform = document.getElementById('loginform');
-function logoutFunction(){
-    
-}
 var request=new XMLHttpRequest();
 request.onreadystatechange=function()
 {
@@ -28,6 +25,7 @@ request.onreadystatechange=function()
 };
 request.open('GET','http://vidhiyakar.imad.hasura-app.io/checklogin',true);
 request.send(null);
+alert('adas');
 
 var request=new XMLHttpRequest();
 request.onreadystatechange=function()
