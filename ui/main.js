@@ -8,7 +8,6 @@ var loginformHtml1= "Logged in as ";
 var loginformHtml2= "<br><input type='button' value='Log out' id='logout' onclick='logout()'/>";
 var counterElement = document.getElementById('counter');
 var loginform = document.getElementById('loginform');
-loginform.innertHtml = "senthil";
 function logoutFunction(){
     
 }
@@ -21,9 +20,7 @@ request.onreadystatechange=function()
         {
             var response=request.responseText;
             if(response === 'You are not logged in'){
-                loginform.innerHtml=loginformHtml1+' svidhiyakar '+loginformHtml2;
-                var logoutbutton=document.getElementById('logout');
-                logout.onclick=logoutFunction();
+                loginform.innerHtml=loginformHtml.toString();
             }
         }
     }
