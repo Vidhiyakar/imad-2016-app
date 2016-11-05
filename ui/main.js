@@ -1,7 +1,7 @@
 var loginformHtml = "<b>Login</b><br>Username : <input type='text' id='username'/><br>Password : <input type='password' id='password'/><br><input type='submit' value='Log In' id='login' />";
 
 var loginformHtml1= "Logged in as ";
-var loginformHtml2= "<br><input type='button' value='Log out' id='logout' onclick='logout()'/>";
+var loginformHtml2= "<br><input type='button' value='Log out' id='logout'/>";
 var counterElement = document.getElementById('counter');
 var loginform = document.getElementById('loginform');
 var request1=new XMLHttpRequest();
