@@ -8,7 +8,7 @@ var loginformHtml1= "Logged in as ";
 var loginformHtml2= "<br><input type='button' value='Log out' id='logout' onclick='logout()'/>";
 var counterElement = document.getElementById('counter');
 var loginform = document.getElementById('loginform');
-
+loginform.innertHtml = "senthil";
 function logoutFunction(){
     
 }
