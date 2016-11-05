@@ -16,11 +16,11 @@ request.onreadystatechange=function()
         if(request.status===200)
         {
             var response=request.responseText.toString();
-            alert(''+response);
             if(response === "You are not logged in"){
                 loginform.innerHtml=loginformHtml.toString();
             }
         }
+        alert(''+request.responseText.toString());
     }
 };
 request.open('GET','http://vidhiyakar.imad.hasura-app.io/checklogin',true);
