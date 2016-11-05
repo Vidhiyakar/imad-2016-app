@@ -135,6 +135,8 @@ app.get('/login/:input',function(req,res){
 app.get('/checklogin',function(req,res){
     if(req.session && req.session.auth && req.session.auth.userId){
         res.send('You are logged in :'+req.session.auth.userId.toString());
+    }else{
+        res.send('You are not logged in');
     }
 });
 var port = 8080; // Use 8080 for local development because you might already have apache running on 80
