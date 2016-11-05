@@ -5,9 +5,23 @@ Comments
 </title>
 <link rel="stylesheet" type="text/css" href="style.css"/>
 <script>
-var loggedInOrNot=false;
-
-
+function checkUserLogin(){
+var request=new XMLHttpRequest();
+request.onreadystatechange=function()
+{
+    if(request.readyState===XMLHttpRequest.DONE)
+    {
+        if(request.status===200)
+        {
+            return true;            
+        }else{
+            return false;
+        }
+    }
+};
+request.open('GET','http://vidhiyakar.imad.hasura-app.io/checklogin',true);
+request.send(null);
+}
 function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
@@ -27,6 +41,7 @@ function fetchComments(){
     request.send(null);
 }
 function addComment(){
+    if(checkUserLogin()){
     var commentElement=document.getElementById('commenttext');
     var commentText=commentElement.value.toString();
     var request=new XMLHttpRequest();
@@ -45,6 +60,9 @@ function addComment(){
     };
     request.open('GET','http://vidhiyakar.imad.hasura-app.io/addcomments/'+commentText,true);
     request.send(null);
+    }else{
+        alert('Please Login to comment');
+    }
 }
 </script>
 </head>
