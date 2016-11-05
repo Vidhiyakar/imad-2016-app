@@ -10,6 +10,7 @@ request1.onreadystatechange=function()
         {
             loginform.innerHTML = loginformHtml;
             signupSetup();
+            loginSetup();
         }else if(request1.status ===200){
             loginform.innerHTML = request1.responseText.toString()+loginformHtml2;
         }
@@ -41,6 +42,7 @@ function logoutFunction(){
             {
                 loginform.innerHTML = loginformHtml;
                 signupSetup();
+                loginSetup();
             }
         }
     };
@@ -58,7 +60,6 @@ signup.onclick= function(){
             {    
                 alert(''+request.responseText.toString());
                 loginform.innerHTML = loginformHtml.toString();
-                loginSetup();
             }else{
                 alert('Username not available');
             }
