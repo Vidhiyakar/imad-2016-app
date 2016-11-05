@@ -4,15 +4,14 @@ var loginformHtml1= "Logged in as ";
 var loginformHtml2= "<br><input type='button' value='Log out' id='logout' onclick='logout()'/>";
 var counterElement = document.getElementById('counter');
 var loginform = document.getElementById('loginform');
-loginform.innerHTML = "senthil";
 var request1=new XMLHttpRequest();
 request1.onreadystatechange=function()
 {
     if(request1.readyState===XMLHttpRequest.DONE)
     {
-        if(request1.status===403)
+        if(request1.status === 403)
         {
-            loginform.innertHTML = loginformHtml; 
+            loginform.innertHTML = loginformHtml.toString(); 
         }
     }
 };
