@@ -59,7 +59,10 @@ signup.onclick= function(){
             if(request.status===200)
             {    
                 alert(''+request.responseText.toString());
-                loginform.innerHTML = loginformHtml.toString();
+                var usernameElement = document.getElementById('username');
+                var passwordElement = document.getElementById('password');
+                usernameElement.value='';
+                paasswordElement.value='';
             }else{
                 alert('Username not available');
             }
