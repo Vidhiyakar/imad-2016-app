@@ -57,7 +57,8 @@ signup.onclick= function(){
         {        
             if(request.status===200)
             {    
-                loginform.innerHTML=request.responseText.toString()+loginformHtml2;
+                alert(''+request.responseText.toString());
+                loginform.innerHTML = loginformHtml.toString();
             }else if(request.status === 403){
                 alert(""+request.responseText.toString());
             }else{
