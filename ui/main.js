@@ -1,6 +1,5 @@
 var loginformHtml = "<b>Login</b><br>Username : <input type='text' id='username'/><br>Password : <input type='password' id='password'/><br><input type='submit' value='Log In' id='login' />";
 
-var loginformHtml1= "Logged in as ";
 var loginformHtml2= "<br><input type='button' value='Log out' id='logout' onclick='logoutFunction()'/>";
 var counterElement = document.getElementById('counter');
 var loginform = document.getElementById('loginform');
@@ -11,6 +10,8 @@ request1.onreadystatechange=function()
         {
             loginform.innerHTML = loginformHtml;
             loginSetup();
+        }else if(request1.status ===200){
+            loginform.innerHTML = request.responseText.toString()+loginformHtml2;
         }
 };
 request1.open('GET','http://vidhiyakar.imad.hasura-app.io/checklogin',true);
