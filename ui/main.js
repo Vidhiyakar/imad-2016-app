@@ -8,24 +8,19 @@ var loginformHtml1= "Logged in as ";
 var loginformHtml2= "<br><input type='button' value='Log out' id='logout' onclick='logout()'/>";
 var counterElement = document.getElementById('counter');
 var loginform = document.getElementById('loginform');
-var request=new XMLHttpRequest();
-request.onreadystatechange=function()
+var request1=new XMLHttpRequest();
+request1.onreadystatechange=function()
 {
-    if(request.readyState===XMLHttpRequest.DONE)
+    if(request1.readyState===XMLHttpRequest.DONE)
     {
-        console.log(''+request.status);
-        if(request.status===200)
+        if(request1.status===200)
         {
-            var response=request.responseText.toString();
-            console.log(''+response);
-            if(response === 'You are not logged in'){
-                loginform.innerHtml=loginformHtml.toString();
-            }
+            console.log(''+request.responseText.toString());
         }
     }
 };
-request.open('GET','http://vidhiyakar.imad.hasura-app.io/checklogin',true);
-request.send(null);
+request1.open('GET','http://vidhiyakar.imad.hasura-app.io/checklogin',true);
+request1.send(null);
 var request=new XMLHttpRequest();
 request.onreadystatechange=function()
 {
