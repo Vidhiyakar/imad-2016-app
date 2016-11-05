@@ -21,7 +21,7 @@ request.onreadystatechange=function()
         {
             var response=request.responseText;
             if(response === 'You are not logged in'){
-                loginform.innerHtml=loginfromHtml1+' svidhiyakar '+loginformHtml2;
+                loginform.innerHtml=loginformHtml1+' svidhiyakar '+loginformHtml2;
                 var logoutbutton=document.getElementById('logout');
                 logout.onclick=logoutFunction();
             }
@@ -54,9 +54,9 @@ login.onclick= function(){
         {        
             if(request.status===200)
             {    
-                /*loginform.innerHtml=loginfromHtml1+' svidhiyakar '+loginformHtml2;
+                loginform.innerHtml=loginformHtml1+' svidhiyakar '+loginformHtml2;
                 var logoutbutton=document.getElementById('logout');
-                logout.onclick=logoutFunction();*/
+                logout.onclick=logoutFunction();
                 alert("Logged in successfully");
             }else if(request.status === 403){
                 alert(""+request.responseText.toString());
