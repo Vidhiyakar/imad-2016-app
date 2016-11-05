@@ -54,7 +54,8 @@ login.onclick= function(){
         {        
             if(request.status===200)
             {    
-                alert("Logged in successfully")
+                alert("Logged in successfully");
+                
             }else if(request.status === 403){
                 alert(""+request.responseText.toString());
             }else{
