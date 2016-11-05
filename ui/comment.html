@@ -10,7 +10,18 @@ function myFunction() {
 }
 function fetchComments(){
     var commentsElement = document.getElementById("comments");
-    
+    var request=new XMLHttpRequest();
+    request.onreadystatechange=function()
+    {
+        if(request.readyState===XMLHttpRequest.DONE)
+        {
+            if(request.status ===200){
+                commentsElement.innerHTML = request.responseText.toString();
+            }
+        }
+    };
+    request.open('GET','http://vidhiyakar.imad.hasura-app.io/getcomments',true);
+    request.send(null);
 }
 </script>
 </head>
