@@ -55,7 +55,7 @@ app.get('/getcomments',function(req,res){
 app.get('/addcomments/:input', function (req, res) {
     var commentText=req.params.input.toString();
     var username=req.session.auth.name.toString();
-    pool.query("insert into comment(username,comment) values($1,$2)",[],function(err,result)
+    pool.query("insert into comment(username,comment) values($1,$2)",[username,commentText],function(err,result)
     {
     if(err)
     {
@@ -63,9 +63,7 @@ app.get('/addcomments/:input', function (req, res) {
     }
     else
     {
-        var visitcount=result.rows[0].value;
-        updatePageVisit(visitcount);
-        res.send(visitcount);
+        res.send('Comment Added');
     }
     });
 });
