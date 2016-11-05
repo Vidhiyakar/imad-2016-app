@@ -107,6 +107,10 @@ app.get('/main.js', function(req,res){
    res.sendFile(path.join(__dirname,'ui','main.js'));
 });
 
+app.get('/comment',function(req,res){
+    res.sendFile(path.join(__dirname,'ui','comment.html'));
+});
+
 app.get('/login/:input',function(req,res){
     var input=req.params.input.split('$');
     var username=input[0];
