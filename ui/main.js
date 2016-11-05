@@ -15,7 +15,7 @@ request1.onreadystatechange=function()
     {
         if(request1.status===200)
         {
-            console.log(''+request.responseText.toString());
+            console.log(''+request1.responseText.toString());
         }
     }
 };
