@@ -1,4 +1,4 @@
-var loginformHtml = "<b>Login</b><br>Username : <input type='text' id='username'/><br>Password : <input type='password' id='password'/><br><input type='submit' value='Log In' id='login' /> &nbsp;&nbsp'; <input type='submit' value='Sign Up' id='signup'";
+var loginformHtml = "<b>Login</b><br>Username : <input type='text' id='username'/><br>Password : <input type='password' id='password'/><br><input type='submit' value='Log In' id='login' /> &nbsp;&nbsp'; <input type='submit' value='Sign Up' id='signup'/>";
 
 var loginformHtml2= "<br><input type='button' value='Log out' id='logout' onclick='logoutFunction()'/>";
 var counterElement = document.getElementById('counter');
