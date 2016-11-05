@@ -23,10 +23,9 @@ function fetchComments(){
     request.open('GET','http://vidhiyakar.imad.hasura-app.io/getcomments',true);
     request.send(null);
 }
-fetchComments();
 </script>
 </head>
-<body>
+<body onload='fetchComments'>
     <br>
     <div class="dropdown">
     <button onmouseover="myFunction()" class="dropbtn">Articles</button>
