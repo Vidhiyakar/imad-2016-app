@@ -16,7 +16,7 @@ request1.onreadystatechange=function()
         if(request1.status===403)
         {
             var responseString = request.responseText.toString();
-            alert('asdasd');
+            loginform.innertHtml = loginformHtml;
         }
     }
 };
