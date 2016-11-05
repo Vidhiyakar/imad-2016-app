@@ -12,7 +12,7 @@ request1.onreadystatechange=function()
         if(request1.status===403)
         {
             var responseString = request.responseText;
-            loginform.innertHtml = responseString.toString();
+            loginform.innertHTML = responseString.toString();
         }
     }
 };
