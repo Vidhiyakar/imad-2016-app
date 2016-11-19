@@ -87,18 +87,6 @@ app.get('/pagevisited', function (req, res) {
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-/*app.get('/bgp.jpg',function(req, res){
-   res.sendFile(path.join(__dirname, 'ui', 'bgp.jpg')); 
-});
-*/
-app.get('/dp.png',function(req, res){
-   res.sendFile(path.join(__dirname, 'ui', 'dp.png'));
-});
-
-app.get('/logo.png',function(req, res){
-   res.sendFile(path.join(__dirname, 'ui', 'logo.png'));
-});
-
 function hash(input,salt){
     var hashed = crypto.pbkdf2Sync(input, salt, 10000, 512, 'sha512');
     return ["pkbdf2", "10000",salt, hashed.toString('hex')].join('$');
@@ -107,29 +95,9 @@ app.get('/hash/:input',function(req,res){
    var hashedString= hash(req.params.input,'senthil-vidhiyakar-is-my-name');
    res.send(hashedString);
 });
-app.get('/style.css', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'style.css'));
-});
-app.get('/style1.css', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'style1.css'));
-});
-app.get('/whatsup.gif', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'whatsup.gif'));
-});
-app.get('/blog.png', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'blog.png'));
-});
 app.get('/addarticles', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'addarticles.html'));
 });
-app.get('/BluetoothChat.apk', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'BluetoothChat.apk'));
-});
-
-app.get('/BluetoothTransfer.apk', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'BluetoothTransfer.apk'));
-});
-
 app.get('/resume',function(req,res){
   res.sendFile(path.join(__dirname,'ui','resume.html'))  
 });
@@ -160,10 +128,6 @@ app.get('/signupuser/:input',function(req,res){
            res.send("User creation successfull:"+username);
        }
     });
-});
-
-app.get('/main.js', function(req,res){
-   res.sendFile(path.join(__dirname,'ui','main.js'));
 });
 app.get('/comment',function(req,res){
     res.sendFile(path.join(__dirname,'ui','comment.html'));
