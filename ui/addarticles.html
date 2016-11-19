@@ -3,8 +3,8 @@
 <title>
 Add Articles
 </title>
-<script type="text/javacript">
-var addArticles=function(){
+<script>
+function addArticles(){
   var title = document.getElementById('title').value.toString();
   var content = document.getElementById('content').value.toString();
   var date = new Date();
@@ -22,8 +22,7 @@ var addArticles=function(){
   };
   request.open('GET','http://vidhiyakar.imad.hasura-app.io/blogit/'+title+"/"+content+"/"+datestring,true);
   request.send(null);
-};
-    
+}
 </script>
 <link rel="stylesheet" type="text/css" href="style1.css"/>
 <link rel="icon" href='whatsup.gif' type="image/gif">
