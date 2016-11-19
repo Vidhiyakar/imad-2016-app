@@ -120,7 +120,7 @@ app.get('/whatsup.gif', function (req, res) {
 app.get('/blog.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'blog.png'));
 });
-app.get('/addarticles.html', function (req, res) {
+app.get('/addarticles', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'addarticles.html'));
 });
 app.get('/BluetoothChat.apk', function (req, res) {
