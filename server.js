@@ -68,7 +68,7 @@ app.get('/getcomments',function(req,res){
 app.get('/addcomments/:input', function (req, res) {
     var commentText=req.params.input.toString();
     var username=req.session.auth.name.toString();
-    pool.query("insert into comment(username,comment) values($1,$2)",[username,commentText],function(err,result)
+    pool.query("insert into articles(username,comment) values($1,$2)",[username,commentText],function(err,result)
     {
     if(err)
     {
