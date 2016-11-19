@@ -1,4 +1,4 @@
-var addarticles=function(){
+var addArticles=function(){
   var title = document.getElementById('title').value.toString();
   var content = document.getElementById('content').value.toString();
   var date = new Date();
