@@ -68,7 +68,6 @@ app.get('/addcomments/:input', function (req, res) {
     });
 });
 
-
 app.get('/pagevisited', function (req, res) {
     pool.query("SELECT value FROM info where field='visitcount'",function(err,result)
     {
@@ -84,20 +83,25 @@ app.get('/pagevisited', function (req, res) {
     }
     });
 });
+
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
+
 function hash(input,salt){
     var hashed = crypto.pbkdf2Sync(input, salt, 10000, 512, 'sha512');
     return ["pkbdf2", "10000",salt, hashed.toString('hex')].join('$');
 }
+
 app.get('/hash/:input',function(req,res){
    var hashedString= hash(req.params.input,'senthil-vidhiyakar-is-my-name');
    res.send(hashedString);
 });
+
 app.get('/addarticles', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'addarticles.html'));
 });
+
 app.get('/resume',function(req,res){
   res.sendFile(path.join(__dirname,'ui','resume.html'))  
 });
@@ -115,6 +119,7 @@ app.post('/createuser',function(req,res){
        }
     });
 });
+
 app.get('/signupuser/:input',function(req,res){
   var input=req.params.input.split('$');
     var username = input[0].toString();
@@ -129,6 +134,7 @@ app.get('/signupuser/:input',function(req,res){
        }
     });
 });
+
 app.get('/comment',function(req,res){
     res.sendFile(path.join(__dirname,'ui','comment.html'));
 });
@@ -171,6 +177,7 @@ app.get('/logout',function(req,res){
    delete req.session.auth;
    res.send('You are logged out');
 });
+
 app.get('/:input', function(req,res){
    res.sendFile(path.join(__dirname,'ui',req.params.input));
 });
