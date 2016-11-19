@@ -17,3 +17,5 @@ var addArticles=function(){
   request.open('GET','http://vidhiyakar.imad.hasura-app.io/blogit/'+title+"/"+content+"/"+datestring,true);
   request.send(null);
 };
+var blogbutton= document.getElementById('blog');
+blogbutton.addEventListener('click',addArticles);
