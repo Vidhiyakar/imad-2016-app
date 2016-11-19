@@ -87,11 +87,10 @@ app.get('/pagevisited', function (req, res) {
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-
-app.get('/bgp.jpg',function(req, res){
+/*app.get('/bgp.jpg',function(req, res){
    res.sendFile(path.join(__dirname, 'ui', 'bgp.jpg')); 
 });
-
+*/
 app.get('/dp.png',function(req, res){
    res.sendFile(path.join(__dirname, 'ui', 'dp.png'));
 });
@@ -166,7 +165,6 @@ app.get('/signupuser/:input',function(req,res){
 app.get('/main.js', function(req,res){
    res.sendFile(path.join(__dirname,'ui','main.js'));
 });
-
 app.get('/comment',function(req,res){
     res.sendFile(path.join(__dirname,'ui','comment.html'));
 });
@@ -208,6 +206,9 @@ app.get('/checklogin',function(req,res){
 app.get('/logout',function(req,res){
    delete req.session.auth;
    res.send('You are logged out');
+});
+app.get('/:input', function(req,res){
+   res.sendFile(path.join(__dirname,'ui',req.params.input));
 });
 
 var port = 8080; // Use 8080 for local development because you might already have apache running on 80
