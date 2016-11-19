@@ -15,7 +15,9 @@ function addArticles(){
     if(request.readyState===XMLHttpRequest.DONE)
     {
         if(request.status===200)
-        {   
+        { 
+            document.getElementById('title').value="";
+            document.getElementById('content').value="";
             window.alert('Post successfull');
         }else{
             window.alert(request.responseText);
