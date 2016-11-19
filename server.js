@@ -35,6 +35,19 @@ var updatePageVisit=function(count){
     });
 }
 
+app.get('/blogit/:title/:content/:datestring',function(req,res){
+    var title=req.params.title.toString();
+    var content = req.params.content.toString();
+    var dateString = req.params.datestring.toString();
+    pool.query("insert into articles(title,content,date) values($1,$2)",[title,content.dateString],function(err,result){
+       if(err){
+           res.status(500).send(err.toString());
+       }else{
+           res.send('Post successful');
+       } 
+    });
+}); 
+
 app.get('/getcomments',function(req,res){
     pool.query("select * from comment",function(err,result){
        if(err){
