@@ -2,7 +2,7 @@ function addArticles(){
   var title = document.getElementById('title').value.toString();
   var content = document.getElementById('content').value.toString();
   var date = new Date();
-  var datestring=date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate(); 
+  var datestring=date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate(); 
   var request=new XMLHttpRequest();
   request.onreadystatechange=function()
   {
