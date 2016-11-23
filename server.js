@@ -36,10 +36,11 @@ var updatePageVisit=function(count){
 }
 
 app.get('/blogit/:title/:content/:datestring',function(req,res){
+    var author_id=req.session.auth.userId.toString();
     var title=req.params.title.toString();
     var content = req.params.content.toString();
     var dateString = req.params.datestring.toString();
-    pool.query("insert into articles(title,content,date) values($1,$2,$3)",[title,content,dateString],function(err,result){
+    pool.query("insert into articles(author_id,title,content,date) values($1,$2,$3,$4)",[author_id,title,content,dateString],function(err,result){
        if(err){
            res.status(500).send(err.toString());
        }else{
