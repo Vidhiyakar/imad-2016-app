@@ -66,6 +66,23 @@ app.get('/getcomments',function(req,res){
     });
 });
 
+app.get('/getarticles',function(req,res){
+    pool.query("select * from comment",function(err,result){
+       if(err){
+           
+       }else{
+           var count=result.rows.length;
+           var timelineTable="<table style='text-align:left; margin:0px' class='content' width='100%'><tr><td width='30%'></td><td></td></tr>";
+           for(var i=0;i<count;i++){
+               timelineTable+="<tr style='margin-bottom:10px'><td>"+result.rows[i].username+"</td><td><span style='display:block;word-wrap:break-word;'>"+result.rows[i].comment+"</span></td></tr>";
+           }
+           timelineTable+="</table>";
+           res.send(""+timelineTable);
+       }
+       
+    });
+});
+
 app.get('/addcomments/:input', function (req, res) {
     var commentText=req.params.input.toString();
     var username=req.session.auth.name.toString();
