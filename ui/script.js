@@ -87,3 +87,18 @@ function addArticles(){
       window.alert('Please login to Post on my Timeline');
   }
 }
+
+function fetchArticles(){
+    var request=new XMLHttpRequest();
+    request.onreadystatechange=function()
+    {
+        if(request.readyState===XMLHttpRequest.DONE)
+        {
+            if(request.status ===200){
+                commentsElement.innerHTML = request.responseText.toString();
+            }
+        }
+    };
+    request.open('GET','http://vidhiyakar.imad.hasura-app.io/getarticles',true);
+    request.send(null);
+}
