@@ -74,7 +74,7 @@ app.get('/getarticles',function(req,res){
            var count=result.rows.length;
            var timelineTable=""
            for(var i=0;i<count;i++){
-               timelineTable+=""+result.row[i].article_id+","+result.row[i].author_id+","+result.row[i].username+","+result.row[i].title+","+result.row[i].content+","+result.row[i].date;
+               timelineTable+=""+result.row[i].article_id+","+result.row[i].author_id+","+result.row[i].username+","+result.row[i].title+","+result.row[i].content+","+result.row[i].date+"<br/>";
            }
            res.send(""+timelineTable);
        }
