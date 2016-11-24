@@ -89,6 +89,7 @@ function addArticles(){
 }
 
 function fetchArticles(){
+    var timeline = document.getElementById("timeline");
     var request=new XMLHttpRequest();
     request.onreadystatechange=function()
     {
