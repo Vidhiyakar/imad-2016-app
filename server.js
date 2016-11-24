@@ -67,16 +67,15 @@ app.get('/getcomments',function(req,res){
 });
 
 app.get('/getarticles',function(req,res){
-    pool.query("select * from articles a, users u where a.author_id=u.id",function(err,result){
+    pool.query("select article_id,author_id,username,title,comment,date from articles a, users u where a.author_id=u.id",function(err,result){
        if(err){
            
        }else{
            var count=result.rows.length;
-           var timelineTable="<table style='text-align:left; margin:0px' class='content' width='100%'><tr><td width='30%'></td><td></td></tr>";
+           var timelineTable=""
            for(var i=0;i<count;i++){
-               timelineTable+="<tr style='margin-bottom:10px'><td>"+result.rows[i].username+"</td><td><span style='display:block;word-wrap:break-word;'>"+result.rows[i].comment+"</span></td></tr>";
+               timelineTable+=""+result.row[i].article_id+","+result.row[i].author_id+","+result.row[i].username+","+result.row[i].title+","+result.row[i].content+","+result.row[i].date;
            }
-           timelineTable+="</table>";
            res.send(""+timelineTable);
        }
        
