@@ -25,6 +25,9 @@ function updateArticleView(article_id){
                 var jsonstring=JSON.parse(request.responseText.toString());
                 var article=jsonstring.rows[0];
                 var title=article.title, content=article.content,username=article.username,date=new Date(article.date).toDateString();
+                document.getElementById("title").innerHTML=title;
+                document.getElementById("content").innerHTML=content;
+                document.getElementById("whowhen").innerHTML="by <i>"+username+"</i> on "+date;
             }
         }
     };
