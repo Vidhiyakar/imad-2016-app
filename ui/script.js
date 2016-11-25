@@ -29,14 +29,12 @@ function fetchTimeline(){
                 var jsonstring=JSON.parse(request.responseText.toString());
                 var timelineString="<table width='100%'>";
                 var row_count=jsonstring.rows.length;
-                for(var j=0;j<10;j++){
                 for(var i=0;i<row_count;i++){
                     var row=jsonstring.rows[i];
                     var article_id=row.article_id;
                     var username=row.username, title= row.title,date=new Date(row.date);
                     var titleString="<span onclick='updateArticleView("+article_id+")'><u><h2>"+title+"</h2></u></span>";
                     timelineString+="<tr><td>"+titleString+"<br>by <i>"+username+"<i> on "+date.toDateString()+"<hr></td></tr>";
-                }
                 }
                 timelineString+="</table>";
                 var timeline=document.getElementById("timeline");
