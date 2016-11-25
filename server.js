@@ -77,6 +77,18 @@ app.get('/articles',function(req,res){
     });
 });
 
+app.get('/articlesbyid/:id',function(req,res){
+    var id=req.params.id;
+    pool.query("select * from articles where article_id=$1",[article_id],function(err,result){
+       if(err){
+           res.send(""+err.toString());
+       }else{
+           res.status(200).send(""+JSON.stringify(result));
+       }
+       
+    });
+});
+
 app.get('/addcomments/:input', function (req, res) {
     var commentText=req.params.input.toString();
     var username=req.session.auth.name.toString();
