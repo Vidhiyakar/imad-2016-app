@@ -79,7 +79,7 @@ app.get('/articles',function(req,res){
 
 app.get('/articlesbyid/:id',function(req,res){
     var id=req.params.id;
-    pool.query("select * from articles where article_id=$1",[id],function(err,result){
+    pool.query("select * from articles a,user u where a.author_id=u.id and article_id=$1",[id],function(err,result){
        if(err){
            res.send(""+err.toString());
        }else{
