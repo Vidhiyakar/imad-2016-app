@@ -67,7 +67,7 @@ app.get('/getcomments',function(req,res){
 });
 
 app.get('/getarticles',function(req,res){
-    pool.query("select article_id,author_id,username,title,content,date from articles a, users u where a.author_id=u.id",function(err,result){
+    pool.query("select a.article_id,a.author_id,u.username,a.title,a.content,a.date from articles a, users u where a.author_id=u.id",function(err,result){
        if(err){
            res.send(""+err.toString());
        }else{
