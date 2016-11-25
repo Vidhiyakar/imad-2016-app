@@ -11,7 +11,13 @@ var timeline = document.getElementById("timeline");
         if(request.readyState===XMLHttpRequest.DONE)
         {
             if(request.status ===200){
-                console.log(request.responseText.toString());
+                var jsonstring=JSON.parse(request.responseText.toString());
+                var row_count=jsonstring.rows.length;
+                for(var i=0;i<row_count;i++){
+                    var row=jsonstring.rows[i];
+                    var article_id=row.article_id;
+                    var author_id
+                }
             }
         }
     };
