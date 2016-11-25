@@ -4,8 +4,6 @@
 My Timeline
 </title>
 <script>
-var timeline=document.getElementById("timeline");
-console.log("timeline="+timeline);
     var request=new XMLHttpRequest();
     request.onreadystatechange=function()
     {
@@ -22,6 +20,7 @@ console.log("timeline="+timeline);
                     timelineString+="<tr><td>"+article_link+title+"</a><br>by <i>"+username+"<i>on "+date+"</td></tr>"
                 }
                 timelineString+="</table>";
+                var timeline=document.getElementById("timeline");
                 timeline.innerHTML=timelineString;
             }
         }
