@@ -74,7 +74,7 @@ app.get('/articles',function(req,res){
            var count=result.rows.length;
            var timelineString="";
            for(var x=0;x<count;x++){
-               var dateString=result.rows[x].date.substring(4,15);
+               var dateString=result.rows[x].date.toString().substring(4,15);
                timelineString+=""+result.rows[x].article_id+","+result.rows[x].author_id+","+result.rows[x].username+","+result.rows[x].title+","+result.rows[x].content+","+dateString;
            }
            res.status(200).send(""+timelineString);
