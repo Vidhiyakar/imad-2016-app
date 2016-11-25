@@ -27,7 +27,7 @@ function fetchTimeline(){
         {
             if(request.status ===200){
                 var jsonstring=JSON.parse(request.responseText.toString());
-                var timelineString="<table>";
+                var timelineString="<table width='100%'>";
                 var row_count=jsonstring.rows.length;
                 for(var i=0;i<row_count;i++){
                     var row=jsonstring.rows[i];
