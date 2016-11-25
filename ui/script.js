@@ -67,6 +67,10 @@ function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
 
+function revFunction(){
+    document.getElementById("myDropdown").classList.toggle("dropdown-content");
+}
+
 function fetchComments(){
     var commentsElement = document.getElementById("comments");
     var request=new XMLHttpRequest();
