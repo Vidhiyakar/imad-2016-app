@@ -5,3 +5,8 @@ background-image:url("bgp.jpg");
 tr{
 vertical-align:top;
 }
+
+h2{
+   margin-top:0px;
+   margin-bottom:0px;
+}
