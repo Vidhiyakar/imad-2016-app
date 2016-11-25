@@ -15,6 +15,10 @@ request.onreadystatechange=function()
 request.open('GET','http://vidhiyakar.imad.hasura-app.io/checklogin',true);
 request.send(null);
 
+function updateArticleView(article_id){
+    window.alert("article_id="+article_id);
+}
+
 function fetchTimeline(){
     var request=new XMLHttpRequest();
     request.onreadystatechange=function()
@@ -40,10 +44,6 @@ function fetchTimeline(){
     };
     request.open('GET','http://vidhiyakar.imad.hasura-app.io/articles',true);
     request.send(null);
-}
-
-function updateArticleView(article_id){
-    window.alert("article_id="+article_id);
 }
 
 function myFunction() {
@@ -117,20 +117,4 @@ function addArticles(){
   }else{
       window.alert('Please login to Post on my Timeline');
   }
-}
-
-function fetchArticles(){
-    var timeline = document.getElementById("timeline");
-    var request=new XMLHttpRequest();
-    request.onreadystatechange=function()
-    {
-        if(request.readyState===XMLHttpRequest.DONE)
-        {
-            if(request.status ===200){
-                commentsElement.innerHTML = request.responseText.toString();
-            }
-        }
-    };
-    request.open('GET','http://vidhiyakar.imad.hasura-app.io/articles',true);
-    request.send(null);
 }
