@@ -27,9 +27,10 @@ function fetchTimeline(){
                 var row_count=jsonstring.rows.length;
                 for(var i=0;i<row_count;i++){
                     var row=jsonstring.rows[i];
-                    var article_link="<a href='http://vidhiyakar.imad.hasura-app.io/getarticlebyid/"+row.article_id+"'>";
+                    var article_id=row.article_id;
                     var username=row.username, title= row.title,date=new Date(row.date);
-                    timelineString+="<tr><td>"+article_link+title+"</a><br>by <i>"+username+"<i> on "+date.toDateString()+"</td></tr>"
+                    var titleString="<span onclick='updateArticleView('"+article_id+"')'><u><h2>"+title+"</h2></u></span>";
+                    timelineString+="<tr><td>"+titleString+"<br>by<i>"+username+"<i> on "+date.toDateString()+"</td></tr>";
                 }
                 timelineString+="</table>";
                 var timeline=document.getElementById("timeline");
