@@ -16,7 +16,20 @@ request.open('GET','http://vidhiyakar.imad.hasura-app.io/checklogin',true);
 request.send(null);
 
 function updateArticleView(article_id){
-    
+    var request=new XMLHttpRequest();
+    request.onreadystatechange=function()
+    {
+        if(request.readyState===XMLHttpRequest.DONE)
+        {
+            if(request.status ===200){
+                var jsonstring=JSON.parse(request.responseText.toString());
+                var article=jsonstring.rows[0];
+                var title=article.title, content=article.content,username=article.username,date=new Date(article.date).toDateString();
+            }
+        }
+    };
+    request.open('GET','http://vidhiyakar.imad.hasura-app.io/articlesbyid/'+article_id,true);
+    request.send(null);
 }
 
 function fetchTimeline(){
