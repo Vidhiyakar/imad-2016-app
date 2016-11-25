@@ -39,6 +39,7 @@ function fetchTimeline(){
                 timelineString+="</table>";
                 var timeline=document.getElementById("timeline");
                 timeline.innerHTML=timelineString;
+                updateArticleView(jsonstring.rows[0].article_id);
             }
         }
     };
