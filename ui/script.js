@@ -124,7 +124,7 @@ function addArticles(){
                 document.getElementById('title').value="";
                 document.getElementById('content').value="";
                 window.alert('Post successfull');
-                window.location.href="http://vidhiyakar.imad.hasura-app.io/articles";
+                window.location.href="http://vidhiyakar.imad.hasura-app.io/timeline";
             }else{
                 window.alert(request.responseText);
             }
