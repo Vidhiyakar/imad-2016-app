@@ -15,6 +15,32 @@ request.onreadystatechange=function()
 request.open('GET','http://vidhiyakar.imad.hasura-app.io/checklogin',true);
 request.send(null);
 
+function fetchTimeline(){
+    var request=new XMLHttpRequest();
+    request.onreadystatechange=function()
+    {
+        if(request.readyState===XMLHttpRequest.DONE)
+        {
+            if(request.status ===200){
+                var jsonstring=JSON.parse(request.responseText.toString());
+                var timelineString="<table>";
+                var row_count=jsonstring.rows.length;
+                for(var i=0;i<row_count;i++){
+                    var row=jsonstring.rows[i];
+                    var article_link="<a href='http://vidhiyakar.imad.hasura-app.io/getarticlebyid/"+row.article_id+"'>";
+                    var username=row.username, title= row.title,date=new Date(row.date);
+                    timelineString+="<tr><td>"+article_link+title+"</a><br>by <i>"+username+"<i> on "+date.toDateString()+"</td></tr>"
+                }
+                timelineString+="</table>";
+                var timeline=document.getElementById("timeline");
+                timeline.innerHTML=timelineString;
+            }
+        }
+    };
+    request.open('GET','http://vidhiyakar.imad.hasura-app.io/articles',true);
+    request.send(null);
+}
+
 function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
