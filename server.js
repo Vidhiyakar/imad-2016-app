@@ -67,11 +67,11 @@ app.get('/getcomments',function(req,res){
 });
 
 app.get('/articles',function(req,res){
-    pool.query("select * from articles",function(err,result){
+    pool.query("select * from articles a, users u where a.author_id=u.id",function(err,result){
        if(err){
            res.send(""+err.toString());
        }else{
-           res.status(200).send(""+result.rows[0].title);
+           res.status(200).send(""+result.rows[0].title+","+result.rows[0].username);
        }
        
     });
