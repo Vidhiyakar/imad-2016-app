@@ -67,7 +67,7 @@ app.get('/getcomments',function(req,res){
 });
 
 app.get('/articles',function(req,res){
-    pool.query("select article_id,author_id,username,title,content,date from articles a, users u where a.author_id=u.id",function(err,result){
+    pool.query("select article_id,author_id,username,title,date from articles a, users u where a.author_id=u.id",function(err,result){
        if(err){
            res.send(""+err.toString());
        }else{
@@ -75,7 +75,7 @@ app.get('/articles',function(req,res){
            var timelineString="<table style='text-align:left; margin:0px' class='content' width='100%'><tr><td width='30%'></td><td></td></tr>";
            for(var x=0;x<count;x++){
                var dateString=result.rows[x].date.toString().substring(4,15);
-               timelineString+=""+result.rows[x].article_id+","+result.rows[x].author_id+","+result.rows[x].username+","+result.rows[x].title+","+result.rows[x].content+","+dateString;
+               timelineString+=""+result.rows[x].article_id+","+result.rows[x].author_id+","+result.rows[x].username+","+result.rows[x].title+","+dateString;
            }
            res.status(200).send(""+timelineString);
        }
