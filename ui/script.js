@@ -124,6 +124,7 @@ function addArticles(){
                 document.getElementById('title').value="";
                 document.getElementById('content').value="";
                 window.alert('Post successfull');
+                windlow.location.href="http://vidhiyakar.imad.hasura-app.io/articles";
             }else{
                 window.alert(request.responseText);
             }
