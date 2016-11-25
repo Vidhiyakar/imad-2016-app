@@ -71,7 +71,7 @@ app.get('/articles',function(req,res){
        if(err){
            res.send(""+err.toString());
        }else{
-           res.status(200).send(""+JSON.stringify(result));
+           res.status(200).send(""+JSON.stringify(result.rows));
        }
        
     });
