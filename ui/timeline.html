@@ -3,9 +3,33 @@
 <title>
 My Timeline
 </title>
+<script>
+var timeline = document.getElementById("timeline");
+    var request=new XMLHttpRequest();
+    request.onreadystatechange=function()
+    {
+        if(request.readyState===XMLHttpRequest.DONE)
+        {
+            if(request.status ===200){
+                timeline.innerHTML = request.responseText.toString();
+            }
+        }
+    };
+    request.open('GET','http://vidhiyakar.imad.hasura-app.io/articles',true);
+    request.send(null);
+</script>
 <link rel="stylesheet" type="text/css" href="style1.css"/>
 </head>
 <body>
-    
+<br>
+<center><h1>My Timeline</h1></center>
+<table width="100%">
+<tr>
+<td width="30%"><div id="timeline"></div></td>
+<td width="2px" bgcolor="white"></td>
+<td></td>
+
+</tr>
+</table>
 </body>
 </html>
