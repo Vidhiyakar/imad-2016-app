@@ -68,7 +68,6 @@ app.get('/getcomments',function(req,res){
 
 app.get('/getarticles',function(req,res){
     pool.query("select a.article_id,a.author_id,u.username,a.title,a.content,a.date from articles a, users u where a.author_id=u.id",function(err,result){
-        res.send("dasdasd");
        if(err){
            res.send(""+err.toString());
        }else{
