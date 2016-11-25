@@ -11,7 +11,7 @@ var timeline = document.getElementById("timeline");
         if(request.readyState===XMLHttpRequest.DONE)
         {
             if(request.status ===200){
-                timeline.innerHTML = request.responseText.toString();
+                console.log(request.responseText.toString());
             }
         }
     };
