@@ -71,12 +71,7 @@ app.get('/articles',function(req,res){
        if(err){
            res.send(""+err.toString());
        }else{
-           var count=result.rows.length;
-           var timelineTable=""
-           for(var i=0;i<count;i++){
-               timelineTable+=""+result.row[i].article_id+","+result.row[i].author_id+","+result.row[i].title+","+result.row[i].content+","+result.row[i].date.toString()+"<br/>";
-           }
-           res.status(200).send(""+timelineTable);
+           res.status(200).send("success");
        }
        
     });
