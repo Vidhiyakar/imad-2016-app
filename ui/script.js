@@ -16,7 +16,7 @@ request.open('GET','http://vidhiyakar.imad.hasura-app.io/checklogin',true);
 request.send(null);
 
 function updateArticleView(article_id){
-    window.alert("article_id="+article_id);
+    
 }
 
 function fetchTimeline(){
