@@ -100,6 +100,6 @@ function fetchArticles(){
             }
         }
     };
-    request.open('GET','http://vidhiyakar.imad.hasura-app.io/getarticles',true);
+    request.open('GET','http://vidhiyakar.imad.hasura-app.io/articles',true);
     request.send(null);
 }
