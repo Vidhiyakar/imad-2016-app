@@ -17,7 +17,7 @@ My Timeline
                     var row=jsonstring.rows[i];
                     var article_link="<a href='http://vidhiyakar.imad.hasura-app.io/getarticlebyid/"+row.article_id+"'>";
                     var username=row.username, title= row.title,date=row.date.toString().substring(4,16);
-                    timelineString+="<tr><td>"+article_link+title+"</a><br>by <i>"+username+"<i>on "+date+"</td></tr>"
+                    timelineString+="<tr><td>"+article_link+title+"</a><br>by <i>"+username+"<i> on "+date+"</td></tr>"
                 }
                 timelineString+="</table>";
                 var timeline=document.getElementById("timeline");
