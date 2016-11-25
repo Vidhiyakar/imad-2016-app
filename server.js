@@ -74,7 +74,7 @@ app.get('/articles',function(req,res){
            var count=result.rows.length;
            var timelineString="";
            for(var x=0;x<count;x++){
-               timelineString+=""+result.rows[i].article_id+","+result.rows[i].author_id+","+result.rows[i].username+","+result.rows[i].title+","+result.rows[i].content+","+result.rows[i].date;
+               timelineString+=""+result.rows[x].article_id+","+result.rows[x].author_id+","+result.rows[x].username+","+result.rows[x].title+","+result.rows[x].content+","+result.rows[x].date;
            }
            res.status(200).send(""+timelineString);
        }
