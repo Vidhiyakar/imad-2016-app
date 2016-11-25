@@ -12,12 +12,16 @@ var timeline = document.getElementById("timeline");
         {
             if(request.status ===200){
                 var jsonstring=JSON.parse(request.responseText.toString());
+                var timelineString="<table>"
                 var row_count=jsonstring.rows.length;
                 for(var i=0;i<row_count;i++){
                     var row=jsonstring.rows[i];
-                    var article_id=row.article_id;
-                    var author_id
+                    var article_link="<a href='http://vidhiyakar.imad.hasura-app.io/getarticlebyid/"+row.article_id+"'>";
+                    var username=row.username, title= row.title,date=row.date.toString().substring(4,16);
+                    timelineString+="<tr><td>"+article_link+title"</a><br>by <i>"+username+"<i>on "+date+"</td></tr>"
                 }
+                timelineString+="</table>";
+                timeline.innerHTML =timelineString;
             }
         }
     };
