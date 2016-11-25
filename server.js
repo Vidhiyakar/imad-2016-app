@@ -131,6 +131,10 @@ app.get('/resume',function(req,res){
   res.sendFile(path.join(__dirname,'ui','resume.html'))  
 });
 
+app.get('/timeline',function(req,res){
+  res.sendFile(path.join(__dirname,'ui','timeline.html'))  
+});
+
 app.post('/createuser',function(req,res){
     var username = req.body.username;
     var password = req.body.password;
