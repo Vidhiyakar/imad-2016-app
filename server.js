@@ -33,7 +33,7 @@ var updatePageVisit=function(count){
            res.send("error");
        } 
     });
-}
+};
 
 app.get('/blogit/:title/:content/:datestring',function(req,res){
     var author_id=req.session.auth.userId.toString();
