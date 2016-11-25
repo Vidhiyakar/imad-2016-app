@@ -30,7 +30,7 @@ function fetchTimeline(){
                     var article_id=row.article_id;
                     var username=row.username, title= row.title,date=new Date(row.date);
                     var titleString="<span onclick='updateArticleView("+article_id+")'><u><h2>"+title+"</h2></u></span>";
-                    timelineString+="<tr><td>"+titleString+"<br>by<i>"+username+"<i> on "+date.toDateString()+"</td></tr>";
+                    timelineString+="<tr><td>"+titleString+"<br>by <i>"+username+"<i> on "+date.toDateString()+"</td></tr>";
                 }
                 timelineString+="</table>";
                 var timeline=document.getElementById("timeline");
@@ -40,6 +40,10 @@ function fetchTimeline(){
     };
     request.open('GET','http://vidhiyakar.imad.hasura-app.io/articles',true);
     request.send(null);
+}
+
+function updateArticleView(article_id){
+    window.alert("article_id="+article_id);
 }
 
 function myFunction() {
