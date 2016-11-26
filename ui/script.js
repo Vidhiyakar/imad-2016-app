@@ -50,7 +50,7 @@ function updateArticleView(article_id){
             }
         }
     };
-    request.open('GET','http://vidhiyakar.imad.hasura-app.io/articlebyid/'+article_id,true);
+    request.open('GET','http://vidhiyakar.imad.hasura-app.io/articlesbyid/'+article_id,true);
     request.send(null);
 }
 
