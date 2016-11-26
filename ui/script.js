@@ -54,9 +54,7 @@ function fetchTimeline(){
                     var row=jsonstring.rows[i];
                     var article_id=row.article_id;
                     var username=row.username, title= row.title,date=new Date(row.date);
-                    if(loggedinAs === username){
-                        username = "You";
-                    }
+                    console.log("u="+username+",l="+loggedinAs);
                     var titleString="<span style='cursor:pointer' onclick='updateArticleView("+article_id+")'><u><h3>"+title+"</h3></u></span>";
                     timelineString+="<tr><td>"+titleString+"by <i>"+username+"<i> on "+date.toDateString()+"<hr></td></tr>";
                 }
