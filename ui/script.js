@@ -17,6 +17,19 @@ request.onreadystatechange=function()
 request.open('GET','http://vidhiyakar.imad.hasura-app.io/checklogin',true);
 request.send(null);
 
+function updateCommentforArticle(article_id){
+    var commentrequest = new XMLHttpRequest();
+    commentrequest.onreadystatechange = function(){
+        if(commentrequest.readystate === XMLHttpRequest.DONE){
+            if(commentrequest.status===200){
+                            
+            }
+        }
+    };
+    commentrequest.open('GET','http://vidhiyakar.imad.hasura-app.io/commentforarticle/'+article_id,true);
+    commentrequest.send(null);
+}
+
 function updateArticleView(article_id){
     var request=new XMLHttpRequest();
     request.onreadystatechange=function()
@@ -33,6 +46,7 @@ function updateArticleView(article_id){
                 document.getElementById("title").innerHTML=title;
                 document.getElementById("content").innerHTML=content;
                 document.getElementById("whowhen").innerHTML="by <i>"+username+"</i> on "+date;
+                updateCommentforArticle(article_id);
             }
         }
     };
