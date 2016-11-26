@@ -49,20 +49,6 @@ app.post('/writearticle',function(req,res){
     });
 });
 
-app.get('/blogit/:title/:content/:datestring',function(req,res){
-    var author_id=req.session.auth.userId.toString();
-    var title=req.params.title.toString();
-    var content = req.params.content.toString();
-    var dateString = req.params.datestring.toString();
-    pool.query("insert into articles(author_id,title,content,date) values($1,$2,$3,$4)",[author_id,title,content,dateString],function(err,result){
-       if(err){
-           res.status(500).send(err.toString());
-       }else{
-           res.send('Post successful');
-       } 
-    });
-}); 
-
 app.get('/articles',function(req,res){
     pool.query("select article_id,username,title,date from articles a, users u where a.author_id=u.id",function(err,result){
        if(err){
