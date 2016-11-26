@@ -20,8 +20,8 @@ request.send(null);
 function updateCommentforArticle(article_id){
     var request = new XMLHttpRequest();
     request.onreadystatechange = function(){
-        console.log('readystatechange for article id '+article_id);
         if(request.readystate === XMLHttpRequest.DONE){
+            console.log('readystate done for article id '+article_id);
             if(request.status === 200){
                 console.log(request.responseText.toString());
                 var jsonstring= JSON.parse(request.responseText.toString());
