@@ -96,7 +96,6 @@ app.get('/articlecomment/:artcile_id',function(req,res){
            res.send(""+err.toString());
        }else{
            res.send(""+article_id);
-           res.status(200).send(""+JSON.stringify(result.rows));
        }
        
     });
