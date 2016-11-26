@@ -49,23 +49,6 @@ app.get('/blogit/:title/:content/:datestring',function(req,res){
     });
 }); 
 
-app.get('/getcomments',function(req,res){
-    pool.query("select * from comment",function(err,result){
-       if(err){
-           
-       }else{
-           var count=result.rows.length;
-           var commentTable="<table style='text-align:left; margin:0px' class='content' width='100%'><tr><td width='30%'></td><td></td></tr>";
-           for(var i=0;i<count;i++){
-               commentTable+="<tr style='margin-bottom:10px'><td>"+result.rows[i].username+"</td><td><span style='display:block;word-wrap:break-word;'>"+result.rows[i].comment+"</span></td></tr>";
-           }
-           commentTable+="</table>";
-           res.send(""+commentTable);
-       }
-       
-    });
-});
-
 app.get('/articles',function(req,res){
     pool.query("select article_id,username,title,date from articles a, users u where a.author_id=u.id",function(err,result){
        if(err){
@@ -100,22 +83,6 @@ app.get('/articlecomment/:article_id',function(req,res){
     });
 });
 
-app.get('/addcomments/:input', function (req, res) {
-    var commentText=req.params.input.toString();
-    var username=req.session.auth.name.toString();
-    pool.query("insert into comment(username,comment) values($1,$2)",[username,commentText],function(err,result)
-    {
-    if(err)
-    {
-        res.status(500).send(err.toString());
-    }
-    else
-    {
-        res.send('Comment Added');
-    }
-    });
-});
-
 app.get('/commentonarticle/:article_id/:comment', function (req, res) {
     var article_id=req.params.article_id.toString();
     var commentText=req.params.comment.toString();
@@ -135,21 +102,7 @@ app.get('/commentonarticle/:article_id/:comment', function (req, res) {
 
 app.get('/pagevisited', function (req, res) {
     pool.query("SELECT value FROM info where field='visitcount'",function(err,result)
-    {app.get('/addcomments/:input', function (req, res) {
-    var commentText=req.params.input.toString();
-    var username=req.session.auth.name.toString();
-    pool.query("insert into comment(username,comment) values($1,$2)",[username,commentText],function(err,result)
     {
-    if(err)
-    {
-        res.status(500).send(err.toString());
-    }
-    else
-    {
-        res.send('Comment Added');
-    }
-    });
-});
     if(err)
     {
         res.status(500).send(err.toString());
