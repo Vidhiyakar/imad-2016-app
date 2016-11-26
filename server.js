@@ -73,7 +73,7 @@ app.get('/articlesbyid/:id',function(req,res){
 
 app.get('/articlecomment/:article_id',function(req,res){
     var article_id=req.params.article_id;
-    pool.query("select username,comment,date from article_comment ac, users u where ac.commenter_id=u.id and ac.article_id=$1",[article_id],function(err,result){
+    pool.query("select username,comment,date from article_comment ac, users u where ac.commenter_id=u.id and ac.article_id=$1 order by comment_id",[article_id],function(err,result){
        if(err){
            res.send(""+err.toString());
        }else{
