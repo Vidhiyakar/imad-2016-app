@@ -54,6 +54,11 @@ function logoutFunction(){
 function signupSetup(){
 var signup = document.getElementById('signup');
 signup.onclick= function(){
+    var username= document.getElementById('username').value;
+    var password= document.getElementById('password').value;
+    if(username.length===0 || password.length===0){
+        window.alert("Username and password are needed");
+    }else{
     var request=new XMLHttpRequest();
     request.onreadystatechange=function(){
         if(request.readyState===XMLHttpRequest.DONE)
@@ -69,10 +74,9 @@ signup.onclick= function(){
                 alert('Username not available');
             }
         }};
-    var username= document.getElementById('username').value;
-    var password= document.getElementById('password').value;
     request.open('GET','http://vidhiyakar.imad.hasura-app.io/signupuser/'+(username+'$'+password),true);
     request.send(null);
+    }
 };
 }
 
