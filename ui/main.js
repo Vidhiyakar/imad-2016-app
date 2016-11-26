@@ -98,12 +98,12 @@ login.onclick= function(){
             }else{
                 alert('Sorry.. Something went wrong');
             }
-        }}
+        }};
     var username= document.getElementById('username').value;
     var password= document.getElementById('password').value;
     request.open('GET','http://vidhiyakar.imad.hasura-app.io/login/'+(username+'$'+password),true);
     request.send(null);
-}
+};
 }
 
 window.onclick = function(event) {
@@ -118,4 +118,4 @@ window.onclick = function(event) {
       }
     }
   }
-}
+};
