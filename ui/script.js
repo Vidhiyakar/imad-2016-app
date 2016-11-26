@@ -117,6 +117,30 @@ function fetchComments(){
     request.send(null);
 }
 
+function commentOnArticle(){
+    if(loggedinFlag === true){
+        var commentElement=document.getElementById('commenttext');
+        var commentText=commentElement.value.toString();
+        var request=new XMLHttpRequest();
+        request.onreadystatechange=function()
+        {
+            if(request.readyState===XMLHttpRequest.DONE)
+            {
+                if(request.status===200)
+                {
+                    fetchComments();
+                    commentElement.value="";
+                }else{
+                    alert('Comment failed.. Please login to comment..');
+                }
+            }
+        };
+        request.open('GET','http://vidhiyakar.imad.hasura-app.io/commentonarticle/'+commentText,true);
+        request.send(null);
+    }else{
+        alert('Please Login to comment');
+    }
+}
 function addComment(){
     if(loggedinFlag === true){
         var commentElement=document.getElementById('commenttext');
