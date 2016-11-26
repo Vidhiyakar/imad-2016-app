@@ -20,6 +20,7 @@ request.send(null);
 function updateCommentforArticle(article_id){
     var request = new XMLHttpRequest();
     request.onreadystatechange = function(){
+        console.log(request.readystate);
         if(request.readystate === XMLHttpRequest.DONE){
             console.log('readystate done for article id '+article_id);
             if(request.status === 200){
