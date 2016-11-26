@@ -134,6 +134,7 @@ function commentOnArticle(){
                     updateCommentforArticle(current_article);
                 }else{
                     alert('Comment failed.. Please login to comment..');
+                    console.log(''+request.responseText);
                 }
             }
         };
