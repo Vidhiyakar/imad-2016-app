@@ -116,9 +116,40 @@ app.get('/addcomments/:input', function (req, res) {
     });
 });
 
+app.get('/commentonarticle/:article_id/:comment', function (req, res) {
+    var article_id=req.params.article_id.toString();
+    var commentText=req.params.comment.toString();
+    var author_id=req.session.auth.userId.toString();
+    pool.query("insert into article_comment(article_id,author_id,comment) values($1,$2,$3)", [article_id,author_id,commentText], function(err,result)
+    {
+    if(err)
+    {
+        res.status(500).send(err.toString());
+    }
+    else
+    {
+        res.send('Comment Added');
+    }
+    });
+});
+
 app.get('/pagevisited', function (req, res) {
     pool.query("SELECT value FROM info where field='visitcount'",function(err,result)
+    {app.get('/addcomments/:input', function (req, res) {
+    var commentText=req.params.input.toString();
+    var username=req.session.auth.name.toString();
+    pool.query("insert into comment(username,comment) values($1,$2)",[username,commentText],function(err,result)
     {
+    if(err)
+    {
+        res.status(500).send(err.toString());
+    }
+    else
+    {
+        res.send('Comment Added');
+    }
+    });
+});
     if(err)
     {
         res.status(500).send(err.toString());
