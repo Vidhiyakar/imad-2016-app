@@ -89,15 +89,14 @@ app.get('/articlesbyid/:id',function(req,res){
     });
 });
 
-app.get('/articlecomment/:artcile_id',function(req,res){
+app.get('/articlecomment/:article_id',function(req,res){
     var article_id=req.params.article_id;
     pool.query("select username,comment,date from article_comment ac, users u where ac.author_id=u.id and ac.article_id=$1",[article_id],function(err,result){
        if(err){
            res.send(""+err.toString());
        }else{
-           res.send(""+article_id);
+           res.status(200).send(""+JSON.stringify(result.rows));
        }
-       
     });
 });
 
