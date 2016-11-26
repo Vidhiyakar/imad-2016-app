@@ -41,7 +41,7 @@ app.post('/writearticle',function(req,res){
   var author_id=req.session.auth.userId.toString();
   pool.query("insert into articles(author_id,title,content) values($1,$2,$3)",[author_id,title,content],function(err,result){
        if(err){
-           res.status(500).send(err.toString()+",title="+title+",content="+content);
+           res.status(500).send(err.toString());
        }else{
            res.send('Post successful');
        } 
