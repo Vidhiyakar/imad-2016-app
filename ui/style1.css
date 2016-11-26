@@ -53,3 +53,11 @@ h1,h2,h3{
 .dropdown-content a:hover {background-color: #f1f1f1}
 
 .show {display:block;}
+
+::-webkit-scrollbar-track {
+      background-color: #b46868;
+} 
+ 
+::-webkit-scrollbar-thumb {
+      background-color: #ffffff; 
+} 
