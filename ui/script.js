@@ -81,7 +81,6 @@ function fetchTimeline(){
                     var row=jsonstring.rows[i];
                     var article_id=row.article_id;
                     var username=row.username, title= row.title,date=new Date(row.date);
-                    console.log("u="+username+",l="+loggedinAs);
                     if(loggedinAs==username){
                         username = "You";
                     }
