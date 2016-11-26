@@ -64,7 +64,7 @@ function updateArticleView(article_id){
                 document.getElementById("content").innerHTML=content;
                 document.getElementById("whowhen").innerHTML="by <i>"+username+"</i> on "+date;
                 var commentsection=document.getElementById("article_comments");
-                commentsection.innerHTML=commentTable;
+                commentsection.innerHTML="";
                 updateCommentforArticle(article_id);
             }
         }
