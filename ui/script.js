@@ -22,7 +22,17 @@ function updateCommentforArticle(article_id){
     commentrequest.onreadystatechange = function(){
         if(commentrequest.readystate === XMLHttpRequest.DONE){
             if(commentrequest.status===200){
-                            
+                var jsonstring= JSON.parse(request.responseText.toString());
+                var commentTable="<table width='100%'>";
+                var count=jsonstring.rows.length;
+                for(var i=0;i<count;i++){
+                    var comment_row=jsonstring.rows[i];
+                    var username = comment_row.username;
+                    var comment = comment_row.comment;
+                    var date = new Date(comment_row.date.toString()).toDateString();
+                    commentTable+="<tr><td><i>"+username+"</i> on "+date+"</td></tr><tr><td colspan='2'>"+comment+"</td></tr>";
+                }
+                commentTable+="</table>";
             }
         }
     };
