@@ -71,7 +71,7 @@ app.get('/articles',function(req,res){
        if(err){
            res.send(""+err.toString());
        }else{
-           var response={"username":req.sessions.auth.name.toString(), "rows":result.rows};
+           var response={"username":req.sessions.auth.name.toString(), "rows":[result.rows]};
            res.status(200).send(""+JSON.stringify(response));
        }
        
