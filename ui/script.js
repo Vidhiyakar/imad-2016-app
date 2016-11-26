@@ -34,7 +34,7 @@ function updateCommentforArticle(article_id){
                     commentTable+="<tr><td><i>"+username+"</i> on "+date+"</td></tr><tr><td colspan='2'>"+comment+"</td></tr>";
                 }
                 commentTable+="</table>";
-                var commentsection=document.getElementById("article_comment");
+                var commentsection=document.getElementById("article_comments");
                 commentsection.innerHTML=commentTable;
             }
         }
