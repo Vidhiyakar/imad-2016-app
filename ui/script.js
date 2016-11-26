@@ -153,6 +153,8 @@ function writeArticles(){
         }
       };
       request.open('POST','http://vidhiyakar.imad.hasura-app.io/writearticle',true);
+      console.log(title);
+      console.log(content);
       request.send(JSON.stringify({"title":title,"content":content}));
   }else{
       window.alert('Please login to Post on my Timeline');
