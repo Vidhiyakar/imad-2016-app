@@ -1,5 +1,6 @@
 var loggedinFlag=false;
 var request=new XMLHttpRequest();
+var username="";
 request.onreadystatechange=function()
 {
     if(request.readyState===XMLHttpRequest.DONE)
@@ -7,6 +8,8 @@ request.onreadystatechange=function()
         if(request.status===200)
         {   
             loggedinFlag=true;
+            username=request.responseText.toString().split('$')[1];
+            window.alert(username);
         }else{
             loggedinFlag=false;
         }
