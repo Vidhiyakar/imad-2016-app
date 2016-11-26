@@ -18,6 +18,7 @@ var app = express();
 
 app.use(morgan('combined'));
 app.use(bodyParser.json());
+
 app.use(session({
     secret : 'someRandomSecretValue',
     cookie : {
@@ -34,6 +35,19 @@ var updatePageVisit=function(count){
        } 
     });
 };
+
+app.post('/writearticle',function(req,res){
+  var title = req.body.title;
+  var content = req.body.content;
+  var author_id=req.session.auth.userId.toString();
+  pool.query("insert into articles(author_id,title,content) values($1,$2,$3)",[author_id,title,content],function(err,result){
+       if(err){
+           res.status(500).send(err.toString());
+       }else{
+           res.send('Post successful');
+       } 
+    });
+});
 
 app.get('/blogit/:title/:content/:datestring',function(req,res){
     var author_id=req.session.auth.userId.toString();
