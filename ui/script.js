@@ -18,10 +18,10 @@ request.open('GET','http://vidhiyakar.imad.hasura-app.io/checklogin',true);
 request.send(null);
 
 function updateCommentforArticle(article_id){
-    window.alert('fetching comments for article '+article_id);
     var commentrequest = new XMLHttpRequest();
     commentrequest.onreadystatechange = function(){
         if(commentrequest.readystate === XMLHttpRequest.DONE){
+            console.log(request.responseText.toString());
             if(commentrequest.status===200){
                 var jsonstring= JSON.parse(request.responseText.toString());
                 var commentTable="<table width='100%'>";
