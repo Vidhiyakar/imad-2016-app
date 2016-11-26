@@ -87,6 +87,13 @@ login.onclick= function(){
             {    
                 loginform.innerHTML=request.responseText.toString()+loginformHtml2;
             }else if(request.status === 403){
+                var message = request.responseText.toString();
+                if(message === "No user found"){
+                    document.getElementById('username').value="";
+                    document.getElementById('password').value="";
+                }else if(message === "Wrong Password"){
+                    document.getElementById('password').value="";
+                }
                 alert(""+request.responseText.toString());
             }else{
                 alert('Sorry.. Something went wrong');
