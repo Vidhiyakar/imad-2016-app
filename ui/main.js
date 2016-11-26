@@ -91,7 +91,7 @@ login.onclick= function(){
                 if(message === "No user found"){
                     document.getElementById('username').value="";
                     document.getElementById('password').value="";
-                }else if(message === "Wrong Password"){
+                }else if(message === "Wrong password"){
                     document.getElementById('password').value="";
                 }
                 alert(""+request.responseText.toString());
