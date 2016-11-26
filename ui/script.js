@@ -9,6 +9,7 @@ request.onreadystatechange=function()
         {   
             loggedinFlag=true;
             loggedinAs=request.responseText.toString().substring(13);
+            window.alert(""+loggedinAs);
         }else{
             loggedinFlag=false;
         }
