@@ -21,8 +21,8 @@ function updateCommentforArticle(article_id){
     var commentrequest = new XMLHttpRequest();
     commentrequest.onreadystatechange = function(){
         if(commentrequest.readystate === XMLHttpRequest.DONE){
-            console.log(request.responseText.toString());
             if(commentrequest.status===200){
+                console.log(request.responseText.toString());
                 var jsonstring= JSON.parse(request.responseText.toString());
                 var commentTable="<table width='100%'>";
                 var count=jsonstring.rows.length;
