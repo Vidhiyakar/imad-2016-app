@@ -8,7 +8,7 @@ request.onreadystatechange=function()
         if(request.status===200)
         {   
             loggedinFlag=true;
-            loggedinAs=request.responseText.toString().split('$')[1];
+            loggedinAs=(request.responseText.toString().split('$')[1]).substring(1);
         }else{
             loggedinFlag=false;
         }
