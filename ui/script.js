@@ -26,7 +26,7 @@ function updateCommentforArticle(article_id){
             }
         }
     };
-    commentrequest.open('GET','http://vidhiyakar.imad.hasura-app.io/commentforarticle/'+article_id,true);
+    commentrequest.open('GET','http://vidhiyakar.imad.hasura-app.io/articlecomment/'+article_id,true);
     commentrequest.send(null);
 }
 
@@ -50,7 +50,7 @@ function updateArticleView(article_id){
             }
         }
     };
-    request.open('GET','http://vidhiyakar.imad.hasura-app.io/articlecomment/'+article_id,true);
+    request.open('GET','http://vidhiyakar.imad.hasura-app.io/articlebyid/'+article_id,true);
     request.send(null);
 }
 
