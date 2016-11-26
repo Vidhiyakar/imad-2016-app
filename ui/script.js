@@ -18,9 +18,9 @@ request.open('GET','http://vidhiyakar.imad.hasura-app.io/checklogin',true);
 request.send(null);
 
 function updateCommentforArticle(article_id){
-    console.log('article id is '+article_id);
     var request = new XMLHttpRequest();
     request.onreadystatechange = function(){
+        console.log('readystatechange for article id '+article_id);
         if(request.readystate === XMLHttpRequest.DONE){
             if(request.status === 200){
                 console.log(request.responseText.toString());
