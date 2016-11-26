@@ -31,6 +31,9 @@ function updateCommentforArticle(article_id){
                     var username = comment_row.username;
                     var comment = comment_row.comment;
                     var date = new Date(comment_row.date.toString()).toDateString();
+                    if(loggedinAs === username){
+                        username="You";
+                    }
                     commentTable+="<tr><td><i>"+username+"</i> on "+date+"</td></tr><tr><td colspan='2'>"+comment+"<hr></td></tr>";
                 }
                 commentTable+="</table>";
