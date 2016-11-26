@@ -130,8 +130,8 @@ function commentOnArticle(){
             {
                 if(request.status===200)
                 {
-                    updateCommentforArticle(current_article);
                     commentElement.value="";
+                    updateCommentforArticle(current_article);
                 }else{
                     alert('Comment failed.. Please login to comment..');
                 }
