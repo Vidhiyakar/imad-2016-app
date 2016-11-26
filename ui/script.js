@@ -1,6 +1,6 @@
 var loggedinFlag=false;
 var request=new XMLHttpRequest();
-var username="";
+var loggedinAs="";
 request.onreadystatechange=function()
 {
     if(request.readyState===XMLHttpRequest.DONE)
@@ -8,7 +8,7 @@ request.onreadystatechange=function()
         if(request.status===200)
         {   
             loggedinFlag=true;
-            username=request.responseText.toString().split('$')[1];
+            loggedinAs=request.responseText.toString().split('$')[1];
         }else{
             loggedinFlag=false;
         }
@@ -27,6 +27,9 @@ function updateArticleView(article_id){
                 var jsonstring=JSON.parse(request.responseText.toString());
                 var article=jsonstring.rows[0];
                 var title=article.title, content=article.content,username=article.username,date=new Date(article.date).toDateString();
+                if(loggedinAs === username){
+                    username = "You";
+                }
                 document.getElementById("title").innerHTML=title;
                 document.getElementById("content").innerHTML=content;
                 document.getElementById("whowhen").innerHTML="by <i>"+username+"</i> on "+date;
@@ -51,6 +54,9 @@ function fetchTimeline(){
                     var row=jsonstring.rows[i];
                     var article_id=row.article_id;
                     var username=row.username, title= row.title,date=new Date(row.date);
+                    if(loggedinAs === username){
+                        username = "You";
+                    }
                     var titleString="<span style='cursor:pointer' onclick='updateArticleView("+article_id+")'><u><h3>"+title+"</h3></u></span>";
                     timelineString+="<tr><td>"+titleString+"by <i>"+username+"<i> on "+date.toDateString()+"<hr></td></tr>";
                 }
