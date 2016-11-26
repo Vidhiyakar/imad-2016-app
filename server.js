@@ -95,7 +95,7 @@ app.get('/articlecomment/:article_id',function(req,res){
        if(err){
            res.send(""+err.toString());
        }else{
-           res.status(200).send(""+JSON.stringify(result.rows));
+           res.status(200).send(""+JSON.stringify(result));
        }
     });
 });
