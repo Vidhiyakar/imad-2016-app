@@ -74,7 +74,7 @@ app.get('/articlesbyid/:id',function(req,res){
 
 app.get('/articlecomment/:article_id',function(req,res){
     var article_id=req.params.article_id;
-    pool.query("select username,comment,date from article_comment ac, users u where ac.author_id=u.id and ac.article_id=$1",[article_id],function(err,result){
+    pool.query("select username,comment,date from article_comment ac, users u where ac.commenter_id=u.id and ac.article_id=$1",[article_id],function(err,result){
        if(err){
            res.send(""+err.toString());
        }else{
@@ -87,7 +87,7 @@ app.get('/commentonarticle/:article_id/:comment', function (req, res) {
     var article_id=req.params.article_id.toString();
     var commentText=req.params.comment.toString();
     var author_id=req.session.auth.userId.toString();
-    pool.query("insert into article_comment(article_id,author_id,comment) values($1,$2,$3)", [article_id,author_id,commentText], function(err,result)
+    pool.query("insert into article_comment(article_id,commenter_id,comment) values($1,$2,$3)", [article_id,author_id,commentText], function(err,result)
     {
     if(err)
     {
