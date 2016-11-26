@@ -9,7 +9,6 @@ request.onreadystatechange=function()
         {   
             loggedinFlag=true;
             username=request.responseText.toString().split('$')[1];
-            window.alert(username);
         }else{
             loggedinFlag=false;
         }
