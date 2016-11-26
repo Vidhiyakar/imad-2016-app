@@ -1,6 +1,7 @@
 var loggedinFlag=false;
 var request=new XMLHttpRequest();
 var loggedinAs="";
+var current_article=0;
 request.onreadystatechange=function()
 {
     if(request.readyState===XMLHttpRequest.DONE)
@@ -43,6 +44,7 @@ function updateCommentforArticle(article_id){
 }
 
 function updateArticleView(article_id){
+    current_article=article_id;
     var request=new XMLHttpRequest();
     request.onreadystatechange=function()
     {
@@ -128,19 +130,20 @@ function commentOnArticle(){
             {
                 if(request.status===200)
                 {
-                    fetchComments();
+                    updateCommentforArticle(current_article);
                     commentElement.value="";
                 }else{
                     alert('Comment failed.. Please login to comment..');
                 }
             }
         };
-        request.open('GET','http://vidhiyakar.imad.hasura-app.io/commentonarticle/'+commentText,true);
+        request.open('GET','http://vidhiyakar.imad.hasura-app.io/commentonarticle/'+current_article+"/"+commentText,true);
         request.send(null);
     }else{
         alert('Please Login to comment');
     }
 }
+
 function addComment(){
     if(loggedinFlag === true){
         var commentElement=document.getElementById('commenttext');
