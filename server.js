@@ -89,6 +89,18 @@ app.get('/articlesbyid/:id',function(req,res){
     });
 });
 
+app.get('/updateCoupdateCommentforArticlemmentforArticle/:artcile_id',function(req,res){
+    var article_id=req.params.article_id;
+    pool.query("select title,content,date,username from articles a,users u where a.author_id=u.id and article_id=$1",[id],function(err,result){
+       if(err){
+           res.send(""+err.toString());
+       }else{
+           res.status(200).send(""+JSON.stringify(result));
+       }
+       
+    });
+});
+
 app.get('/addcomments/:input', function (req, res) {
     var commentText=req.params.input.toString();
     var username=req.session.auth.name.toString();
